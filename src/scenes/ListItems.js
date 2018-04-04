@@ -16,16 +16,19 @@ export default class ListItems extends Component {
   render() {
     const {navigate} = this.props.navigation;
     return (
-      <View style={{ flex: 2 }}>
-        <ScrollView>
-          <List>
+      <View style={{backgroundColor: 'white', flex:1}}>
+        <ScrollView  >
+          <List >
             {greens.map(green => (
-              <ListItem
+              <ListItem 
                 key={green.name}
                 roundAvatar
                 avatar={{ uri: green.picture.thumbnail }}
                 title={green.name}
                 onPress={() => navigate('Item',green)}
+                titleStyle={{
+                  fontSize: 18,
+                fontWeight: 'bold'}}
               />
             ))}
           </List>
