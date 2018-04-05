@@ -9,20 +9,22 @@ import {
   StyleSheet
 } from "react-native";
 import { List, ListItem, Avatar, Rating } from "react-native-elements";
-import { greens } from "../services/data";
 import { StackNavigator } from "react-navigation";
 
-export default class Item extends Component {
+import { greens } from "../../services/greens";
+import { colors } from "../../services/colors";
+
+export default class Green extends Component {
   render() {
     return (
-      <View style={{ backgroundColor: "white", flex: 1 }}>
+      <View style={{ backgroundColor: colors.secondary, flex: 1 }}>
         <ScrollView>
           <View style={{ flex: 1, flexDirection: "row", height: 80 }}>
             <Avatar
               large
               rounded
               source={{
-                uri: this.props.navigation.state.params.picture.thumbnail
+                uri: this.props.navigation.state.params.picture
               }}
               onPress={() => console.log("Works!")}
               activeOpacity={0.7}
@@ -38,8 +40,9 @@ export default class Item extends Component {
               imageSize={20}
               type="custom"
               readonly
+              ratingImage={require('./star.png')}
               startingValue={this.props.navigation.state.params.difficulty}
-              ratingBackgroundColor="#000"
+              ratingBackgroundColor= {colors.secondary}
               style={{ flex: 1 }}
             />
           </View>
@@ -145,4 +148,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent("Item", Item);
+AppRegistry.registerComponent("Green", Green);

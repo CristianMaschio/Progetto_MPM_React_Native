@@ -8,22 +8,27 @@ import {
 } from "react-native";
 import Reactn from "react-native";
 import { StackNavigator } from "react-navigation";
-import ListItems from "./src/scenes/ListItems";
-import Item from "./src/scenes/Item";
+import ListGreens from "./src/scenes/ListGreens/ListGreens";
+import Green from "./src/scenes/Green/Green";
+
+import { colors } from "./src/services/colors";
 
 const SmartOrtoApp = StackNavigator(
   {
-    ListItems: {
-      screen: ListItems
+    ListGreens: {
+      screen: ListGreens
     },
-    Item: {
-      screen: Item
+    Green: {
+      screen: Green
     }
   },
   {
   mode: 'modal',
     navigationOptions: {
       title: 'SmartOrto',
+      headerStyle: {
+        backgroundColor: colors.primary,
+      },
       headerRight: <TouchableHighlight onPress={()=> {
         console.log('Funziona il click');
         }}
@@ -34,7 +39,7 @@ const SmartOrtoApp = StackNavigator(
     },
   },
   {
-    initialRouteName: "ListItems"
+    initialRouteName: "ListGreens"
   }
 );
 
