@@ -17,7 +17,7 @@ export default class ListGreens extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={{ backgroundColor: colors.secondary, flex: 1 }}>
+      <View style={{ backgroundColor: colors.secondary, flex: 1}}>
         <ScrollView>
           <List>
             {greens.map(green => (
@@ -29,7 +29,8 @@ export default class ListGreens extends Component {
                 onPress={() => navigate("Green", green)}
                 titleStyle={{
                   fontSize: 18,
-                  fontWeight: "bold"
+                  fontWeight: "bold", 
+                  color: colors.dark 
                 }}
                 containerStyle={{backgroundColor: colors.secondary}}
               />

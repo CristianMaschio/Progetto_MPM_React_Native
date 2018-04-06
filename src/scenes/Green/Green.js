@@ -13,11 +13,12 @@ import { StackNavigator } from "react-navigation";
 
 import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
+import { styles } from "../../utils/styles";
 
 export default class Green extends Component {
   render() {
     return (
-      <View style={{ backgroundColor: colors.secondary, flex: 1 }}>
+      <View style={styles.conteiner}>
         <ScrollView>
           <View style={{ flex: 1, flexDirection: "row", height: 80 }}>
             <Avatar
@@ -40,20 +41,29 @@ export default class Green extends Component {
               imageSize={20}
               type="custom"
               readonly
-              ratingImage={require('./star.png')}
+              ratingImage={require("./star.png")}
               startingValue={this.props.navigation.state.params.difficulty}
-              ratingBackgroundColor= {colors.secondary}
+              ratingBackgroundColor={colors.secondary}
               style={{ flex: 1 }}
             />
           </View>
 
           <View style={styles.rowConteiner}>
             <Text style={[styles.focus, styles.text]}>Range temperatura:</Text>
-            <Text style={[ styles.text, { color: "blue" }]}>
+            <Text style={[styles.text, { color: "blue" }]}>
               {this.props.navigation.state.params.tempMin}-
             </Text>
-            <Text style={[ styles.text, { color: "red" }]}>
+            <Text style={[styles.text, { color: "red" }]}>
               {this.props.navigation.state.params.tempMax}
+            </Text>
+          </View>
+          
+          <View style={styles.rowConteiner}>
+            <Text style={[styles.focus, styles.text]}>
+              Apporto luce:
+            </Text>
+            <Text style={[styles.text]}>
+              {this.props.navigation.state.params.sun}
             </Text>
           </View>
 
@@ -61,7 +71,7 @@ export default class Green extends Component {
             <Text style={[styles.focus, styles.text]}>
               Distanza tra le piante:
             </Text>
-            <Text style={[ styles.text]}>
+            <Text style={[styles.text]}>
               {this.props.navigation.state.params.distancePlants}
             </Text>
           </View>
@@ -69,8 +79,16 @@ export default class Green extends Component {
             <Text style={[styles.focus, styles.text]}>
               Distanza tra le file:
             </Text>
-            <Text style={[ styles.text]}>
+            <Text style={[styles.text]}>
               {this.props.navigation.state.params.distanceFiles}
+            </Text>
+          </View>
+          <View style={styles.rowConteiner}>
+            <Text style={[styles.focus, styles.text]}>
+              Litraggio vaso:
+            </Text>
+            <Text style={[styles.text]}>
+              {this.props.navigation.state.params.literGround}
             </Text>
           </View>
 
@@ -113,39 +131,5 @@ export default class Green extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  title: {
-    flex: 1,
-    fontSize: 36,
-    fontWeight: "bold",
-    textAlignVertical: "center"
-  },
-  subTitle: {
-    flex: 1,
-    fontSize: 22,
-    fontWeight: "bold"
-  },
-  subSubTitle: {
-    flex: 0,
-    fontSize: 18,
-    fontWeight: "bold"
-  },
-  focus: {
-    fontWeight: "bold",
-    paddingRight: 3
-  },
-  text: {
-    fontSize: 16
-  },
-  rowConteiner: {
-    flex: 1,
-    flexDirection: "row"
-  },
-  textConteiner: {
-    flex: 1,
-    paddingBottom: 10
-  }
-});
 
 AppRegistry.registerComponent("Green", Green);
