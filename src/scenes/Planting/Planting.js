@@ -12,7 +12,7 @@ import { StackNavigator } from "react-navigation";
 
 import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
-import { styles } from "../../utils/styles";
+import { styles } from "../../services/styles";
 
 export default class Planting extends Component {
   render() {

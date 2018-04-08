@@ -4,20 +4,17 @@ import { colors } from "../services/colors";
 
 export const styles = StyleSheet.create({
     title: {
-      flex: 1,
       fontSize: 36,
       fontWeight: "bold",
       textAlignVertical: "center",
       color: colors.dark
     },
     subTitle: {
-      flex: 1,
       fontSize: 22,
       fontWeight: "bold",
       color: colors.dark
     },
     subSubTitle: {
-      flex: 0,
       fontSize: 18,
       fontWeight: "bold",
       color: colors.dark
@@ -32,8 +29,9 @@ export const styles = StyleSheet.create({
       color: colors.dark
     },
     rowConteiner: {
-      flex: 1,
-      flexDirection: "row"
+      flex: 0,
+      flexDirection: "row",
+      marginTop: 10
     },
     textConteiner: {
       flex: 1,
@@ -44,5 +42,15 @@ export const styles = StyleSheet.create({
       flex: 1,
       paddingLeft: 10,
       paddingRight: 10,
+    },
+    sideBar: {
+      flex: 1,
+      backgroundColor: colors.secondary,
+      paddingTop: 25,
+      width: 'auto',
+      height: 'auto'
+    },
+    sideBarRowContainer: {
+      padding: 10,
     }
   });
