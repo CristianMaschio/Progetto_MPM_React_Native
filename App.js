@@ -6,18 +6,17 @@ import {
   Image,
   TouchableHighlight
 } from "react-native";
-import Reactn from "react-native";
-import { StackNavigator, DrawerNavigator } from "react-navigation";
+import { StackNavigator } from "react-navigation";
+import { Drawer } from 'native-base';
+
 import ListGreens from "./src/scenes/ListGreens/ListGreens";
 import Green from "./src/scenes/Green/Green";
 import Seeding from "./src/scenes/Seeding/Seeding";
 
 import { colors } from "./src/services/colors";
 
-
-const SmartOrtoApp = StackNavigator(
+const Navigation = StackNavigator(
   {
-    
     ListGreens: {
       screen: ListGreens
     },
@@ -26,30 +25,6 @@ const SmartOrtoApp = StackNavigator(
     },
     Seeding: {
       screen: Seeding
-    }
-  },
-  {
-    headerMode: 'none'
-  }
-);
-
-const Drawer = DrawerNavigator({
-  SmartOrtoApp: {
-    screen: SmartOrtoApp
-  },
-  ListGreens: {
-    screen: ListGreens
-  },
-  Seeding: {
-    screen: Seeding
-  }
-});
-
-
-const DrawerStack = StackNavigator(
-  {
-    Drawer: {
-      screen: Drawer
     },
   },
   {
@@ -65,7 +40,7 @@ const DrawerStack = StackNavigator(
           onPress={() => {
             console.log("Funziona il click");
 
-            navigation.navigate("DrawerToggle");
+            this.openDrawer();
           }}
           underlayColor="transparent"
         >
@@ -79,9 +54,54 @@ const DrawerStack = StackNavigator(
   }
 );
 
-
 export default class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state={
+      startPageX: 0,
+      endPageX: 0
+    }
+  }
+  onResponderGrant(evt){
+    this.state.startPageX=evt.nativeEvent.pageX
+    }
+
+    onResponderRelease(evt){
+      this.state.endPageX=evt.nativeEvent.pageX
+      let swipeLeft= false;
+      console.log(this.state.startPageX+'-'+this.state.endPageX);
+      if((this.state.startPageX-this.state.endPageX)>100) //SwipeLeft
+      this.drawer._root.open();
+      if((this.state.endPageX-this.state.startPageX)>50) //SwipeRight
+      this.drawer._root.close();
+    }
+
   render() {
-    return <DrawerStack />;
+    closeDrawer = () => {
+      this.drawer._root.close()
+    };
+    openDrawer = () => {
+      this.drawer._root.open()
+    };
+    return (
+      <View style={{flex:1}}
+      onStartShouldSetResponder ={evt => true}
+        onResponderGrant={this.onResponderGrant.bind(this)}
+        onResponderRelease={this.onResponderRelease.bind(this)}
+        >
+      <Drawer
+        ref={ref => {
+          this.drawer = ref;
+        }}
+        content={<Seeding/>}
+        onClose={() => 
+          this.drawer._root.close()}
+      side= 'right'
+      openDrawerOffset={100}
+      >
+        <Navigation style={{flex:2}}/>
+      </Drawer>
+      </View>
+    );
   }
 }

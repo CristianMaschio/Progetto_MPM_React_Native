@@ -42,6 +42,7 @@ export const styles = StyleSheet.create({
     conteiner: {
       backgroundColor: colors.secondary,
       flex: 1,
-      padding: 8
+      paddingLeft: 10,
+      paddingRight: 10,
     }
   });
