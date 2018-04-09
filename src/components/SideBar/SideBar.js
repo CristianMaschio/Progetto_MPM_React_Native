@@ -1,37 +1,49 @@
 import React from "react";
-import { View, Image, Text } from "react-native";
+import {
+  View,
+  Image,
+  Text,
+  AppRegistry,
+  TouchableHighlight
+} from "react-native";
 
 import { List, ListItem } from "react-native-elements";
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
 import { greens } from "../../services/greens";
 
+import NavigationService from "../../utils/NavigationService.js";
+
 export default class SideBar extends React.Component {
+  navigation(screen) {
+    NavigationService.navigate(screen);
+    this.props.closeDrawer();
+  }
+
+  element(link, name, image) {
+    return (
+      <TouchableHighlight
+        onPress={() => this.navigation("ListGreens")}
+        underlayColor={colors.lightPrimary}
+      >
+        <View style={styles.sideBarRowContainer}>
+          <Image style={styles.sideBarImage} source={image} />
+          <Text style={styles.subTitle}>{name}</Text>
+        </View>
+      </TouchableHighlight>
+    );
+  }
+
   render() {
     return (
       <View style={styles.sideBar}>
-        <View style={[styles.rowConteiner, styles.sideBarRowContainer]}>
-          <Image
-            style={{ width: 30, height: 30, marginLeft: 10, marginRight: 10 }}
-            source={require("../img/home.png")}
-          />
-          <Text style={styles.subTitle}>Home</Text>
-        </View>
-
-        <View style={[styles.rowConteiner, styles.sideBarRowContainer]}>
-          <Image
-            style={{ width: 30, height: 30, marginLeft: 10, marginRight: 10 }}
-            source={require("../img/list.png")}
-          />
-          <Text style={styles.subTitle}>Lista Ortaggi</Text>
-        </View>
-        <View style={[styles.rowConteiner, styles.sideBarRowContainer]}>
-          <Image
-            style={{ width: 30, height: 30, marginLeft: 10, marginRight: 10 }}
-            source={require("../img/plant.png")}
-          />
-          <Text style={styles.subTitle}>Il mio orto</Text>
-        </View>
+        {this.element("ListGreens", "Home", require("../img/home.png"))}
+        {this.element(
+          "ListGreens",
+          "Lista Ortaggi",
+          require("../img/list.png")
+        )}
+        {this.element("ListGreens", "Il mio orto", require("../img/plant.png"))}
       </View>
     );
   }

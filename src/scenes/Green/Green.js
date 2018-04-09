@@ -20,7 +20,7 @@ export default class Green extends Component {
     return (
       <View style={styles.conteiner}>
         <ScrollView>
-          <View style={{ flex: 1, flexDirection: "row", height: 80 }}>
+          <View style={[styles.rowConteiner, { height: 80 }]}>
             <Avatar
               large
               rounded
@@ -30,7 +30,7 @@ export default class Green extends Component {
               onPress={() => console.log("Works!")}
               activeOpacity={0.7}
             />
-            <Text style={styles.title}>
+            <Text style={[styles.title, {paddingLeft:10}]}>
               {this.props.navigation.state.params.name}
             </Text>
           </View>

@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Image, TouchableHighlight, StyleSheet } from "react-native";
 import { StackNavigator } from "react-navigation";
-import { Drawer } from "native-base";
+import Drawer from "react-native-drawer";
+import NavigationService from "./src/utils/NavigationService";
 
 import ListGreens from "./src/scenes/ListGreens/ListGreens";
 import Green from "./src/scenes/Green/Green";
@@ -51,56 +52,51 @@ const Navigation = StackNavigator(
 );
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startPageX: 0,
-      endPageX: 0
-    };
-  }
-  onResponderGrant(evt) {
-    this.state.startPageX = evt.nativeEvent.pageX;
-  }
-
-  onResponderRelease(evt) {
-    this.state.endPageX = evt.nativeEvent.pageX;
-    let swipeLeft = false;
-    console.log(this.state.startPageX + "-" + this.state.endPageX);
-    if (this.state.startPageX - this.state.endPageX > 100)
-      //SwipeLeft
-      this.drawer._root.open();
-    if (this.state.endPageX - this.state.startPageX > 50)
-      //SwipeRight
-      this.drawer._root.close();
-  }
-
   render() {
     closeDrawer = () => {
-      this.drawer._root.close();
+      this.drawer.close();
     };
     openDrawer = () => {
-      this.drawer._root.open();
+      this.drawer.open();
     };
     return (
-      <View
-        style={{ flex: 1, backgroundColor: colors.secondary }}
-        onStartShouldSetResponder={evt => true}
-        onResponderGrant={this.onResponderGrant.bind(this)}
-        onResponderRelease={this.onResponderRelease.bind(this)}
+      <Drawer
+        type="overlay" //displace:overlay:static
+        ref={ref => {
+          this.drawer = ref;
+        }}
+        content={<SideBar closeDrawer={closeDrawer} />}
+        onClose={() => this.drawer.close()}
+        side="right"
+        openDrawerOffset={120}
+        negotiatePan={true}
+        panOpenMask={25}
+        styles={drawerStyles}
+        tweenHandler={ratio => ({
+          main: {
+            opacity: (2 - ratio) / 2,
+            backgroundColor: colors.dark
+          }
+        })}
+        elevation={20}
       >
-        <Drawer
-          type="overlay" //displace:overlay:static
-          ref={ref => {
-            this.drawer = ref;
+        <Navigation
+          style={{ flex: 2 }}
+          ref={navigatorRef => {
+            NavigationService.setTopLevelNavigator(navigatorRef);
           }}
-          content={<SideBar />}
-          onClose={() => this.drawer._root.close()}
-          side="right"
-          openDrawerOffset={100}
-        >
-          <Navigation style={{ flex: 2 }} />
-        </Drawer>
-      </View>
+        />
+      </Drawer>
     );
   }
 }
+
+const drawerStyles = {
+  drawer: {
+    shadowColor: "#000",
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    backgroundColor: colors.dark
+  },
+  main: { backgroundColor: colors.dark }
+};
