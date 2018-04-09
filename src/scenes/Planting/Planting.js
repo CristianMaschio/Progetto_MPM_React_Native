@@ -7,31 +7,51 @@ import {
   Image,
   StyleSheet
 } from "react-native";
-import { Avatar } from "react-native-elements";
+import { Avatar, CheckBox } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
+import ItemHeader from "../../components/ItemHeader/ItemHeader";
 
 import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
 
 export default class Planting extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      checked: false
+    };
+  }
   render() {
     return (
       <View style={styles.conteiner}>
         <ScrollView>
-          <View style={{ flex: 1, flexDirection: "row", height: 80 }}>
-            <Avatar
-              large
-              rounded
-              source={{
-                uri: this.props.navigation.state.params.picture
-              }}
-              onPress={() => console.log("Works!")}
-              activeOpacity={0.7}
+          <ItemHeader
+            title={this.props.navigation.state.params.name}
+            image={this.props.navigation.state.params.picture}
+          />
+
+          <View style={styles.textConteiner}>
+            <Text style={styles.subTitle}>Imposta il luogo:</Text>
+            <CheckBox
+              containerStyle={{backgroundColor:"transparent", borderColor:"transparent"}}
+              title="Serra"
+              checkedIcon="dot-circle-o"
+              checkedColor={colors.success}
+              uncheckedIcon="circle-o"
+              checked={!this.state.checked}
+              onPress={() => this.setState({checked: !this.state.checked})}
             />
-            <Text style={styles.title}>
-              {this.props.navigation.state.params.name}
-            </Text>
+            <CheckBox
+              containerStyle={{backgroundColor:"transparent", borderColor:"transparent"}}
+              title="Aperto"
+              checkedIcon="dot-circle-o"
+              checkedColor={colors.success}
+              uncheckedIcon="circle-o"
+              checked={this.state.checked}
+              onPress={() => this.setState({checked: !this.state.checked})}
+            />
           </View>
         </ScrollView>
       </View>

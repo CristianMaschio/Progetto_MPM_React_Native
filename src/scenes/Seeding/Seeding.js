@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Avatar, CheckBox } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
+import ItemHeader from "../../components/ItemHeader/ItemHeader";
 
 import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
@@ -26,40 +27,36 @@ export default class Seeding extends Component {
     return (
       <View style={styles.conteiner}>
         <ScrollView>
-          <View style={{ flex: 1, flexDirection: "row", height: 80 }}>
-            <Avatar
-              large
-              rounded
-              /*source={{
-                uri: this.props.navigation.state.params.picture
-              }}*/
-              onPress={() => console.log("Works!")}
-              activeOpacity={0.7}
-            />
-            <Text style={styles.title}>
-              {/*this.props.navigation.state.params.name*/}
-            </Text>
-          </View>
+          <ItemHeader
+            title={this.props.navigation.state.params.name}
+            image={this.props.navigation.state.params.picture}
+          />
 
           <View style={styles.textConteiner}>
             <Text style={styles.subTitle}>Imposta tipo di semina:</Text>
             <CheckBox
-              containerStyle={{backgroundColor:"transparent", borderColor:"transparent"}}
+              containerStyle={{
+                backgroundColor: "transparent",
+                borderColor: "transparent"
+              }}
               title="Semenzaio"
               checkedIcon="dot-circle-o"
               checkedColor={colors.success}
               uncheckedIcon="circle-o"
               checked={!this.state.checked}
-              onPress={() => this.setState({checked: !this.state.checked})}
+              onPress={() => this.setState({ checked: !this.state.checked })}
             />
             <CheckBox
-              containerStyle={{backgroundColor:"transparent", borderColor:"transparent"}}
+              containerStyle={{
+                backgroundColor: "transparent",
+                borderColor: "transparent"
+              }}
               title="Aperto"
               checkedIcon="dot-circle-o"
               checkedColor={colors.success}
               uncheckedIcon="circle-o"
               checked={this.state.checked}
-              onPress={() => this.setState({checked: !this.state.checked})}
+              onPress={() => this.setState({ checked: !this.state.checked })}
             />
           </View>
         </ScrollView>

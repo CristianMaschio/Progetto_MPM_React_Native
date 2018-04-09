@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { List, ListItem, Avatar, Rating } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
+import ItemHeader from "../../components/ItemHeader/ItemHeader";
 
 import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
@@ -20,20 +21,10 @@ export default class Green extends Component {
     return (
       <View style={styles.conteiner}>
         <ScrollView>
-          <View style={[styles.rowConteiner, { height: 80 }]}>
-            <Avatar
-              large
-              rounded
-              source={{
-                uri: this.props.navigation.state.params.picture
-              }}
-              onPress={() => console.log("Works!")}
-              activeOpacity={0.7}
-            />
-            <Text style={[styles.title, {paddingLeft:10}]}>
-              {this.props.navigation.state.params.name}
-            </Text>
-          </View>
+          <ItemHeader
+            title={this.props.navigation.state.params.name}
+            image={this.props.navigation.state.params.picture}
+          />
 
           <View style={styles.rowConteiner}>
             <Text style={styles.subSubTitle}>Difficoltà: </Text>
