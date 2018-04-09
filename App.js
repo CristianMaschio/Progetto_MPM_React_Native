@@ -17,13 +17,22 @@ import { colors } from "./src/services/colors";
 const TabSelect = TabNavigator(
   {
     Green: {
-      screen: Green
+      screen: Green,
+      navigationOptions: {
+        title: 'Ortaggio'
+      }
     },
     Seeding: {
-      screen: Seeding
+      screen: Seeding,
+      navigationOptions: {                                           
+        title: 'Semina'
+      }
     },
     Planting: {
-      screen: Planting
+      screen: Planting,
+      navigationOptions: {
+        title: 'Trapianta'
+      }
     }
   },{
     tabBarPosition: 'bottom',
@@ -39,10 +48,10 @@ const TabSelect = TabNavigator(
 )
 
 const Navigation = StackNavigator(
-  {
+  {/*
     Lab:{
       screen: Lab
-    },
+    },*/
     ListGreens: {
       screen: ListGreens
     },

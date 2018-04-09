@@ -152,9 +152,8 @@ export const greens = [
     ],
     badIntercropping: ["Prezzemolo", "Sedano"],
     seeding: {
-      howIndors: "La semina avviene dentro a dei vasetti",
-      howOutdors:
-        "La semina in campo avviene rispettando circa 35cm di distanza tra le piante, mettendo 2-3 semi a un centimetro di profondità",
+      howIndoors: "La semina avviene dentro a dei vasetti",
+      howOutdoors: "La semina in campo avviene rispettando circa 35cm di distanza tra le piante, mettendo 2-3 semi a un centimetro di profondità",
         depth:"",
         temperature: "",
         indoors: {

@@ -20,7 +20,7 @@ export default class Seeding extends Component {
     super(props);
 
     this.state = {
-      checked: false
+      checked: true
     };
   }
   render() {
@@ -33,7 +33,7 @@ export default class Seeding extends Component {
           />
 
           <View style={styles.textConteiner}>
-            <Text style={styles.subTitle}>Imposta tipo di semina:</Text>
+            <Text style={styles.subTitle}>Imposta il luogo di semina:</Text>
             <CheckBox
               containerStyle={{
                 backgroundColor: "transparent",
@@ -43,7 +43,7 @@ export default class Seeding extends Component {
               checkedIcon="dot-circle-o"
               checkedColor={colors.success}
               uncheckedIcon="circle-o"
-              checked={!this.state.checked}
+              checked={this.state.checked}
               onPress={() => this.setState({ checked: !this.state.checked })}
             />
             <CheckBox
@@ -55,9 +55,18 @@ export default class Seeding extends Component {
               checkedIcon="dot-circle-o"
               checkedColor={colors.success}
               uncheckedIcon="circle-o"
-              checked={this.state.checked}
+              checked={!this.state.checked}
               onPress={() => this.setState({ checked: !this.state.checked })}
             />
+          </View>
+
+          <View style={styles.textConteiner}>
+            <Text style={styles.subTitle}>Come seminare:</Text>
+            <Text style={styles.text}>
+              {this.state.checked
+                ? this.props.navigation.state.params.seeding.howIndoors
+                : this.props.navigation.state.params.seeding.howOutdoors}
+            </Text>
           </View>
         </ScrollView>
       </View>

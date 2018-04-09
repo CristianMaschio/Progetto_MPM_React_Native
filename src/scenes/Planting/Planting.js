@@ -20,7 +20,7 @@ export default class Planting extends Component {
     super(props);
 
     this.state = {
-      checked: false
+      checked: true
     };
   }
   render() {
@@ -40,7 +40,7 @@ export default class Planting extends Component {
               checkedIcon="dot-circle-o"
               checkedColor={colors.success}
               uncheckedIcon="circle-o"
-              checked={!this.state.checked}
+              checked={this.state.checked}
               onPress={() => this.setState({checked: !this.state.checked})}
             />
             <CheckBox
@@ -49,9 +49,16 @@ export default class Planting extends Component {
               checkedIcon="dot-circle-o"
               checkedColor={colors.success}
               uncheckedIcon="circle-o"
-              checked={this.state.checked}
+              checked={!this.state.checked}
               onPress={() => this.setState({checked: !this.state.checked})}
             />
+          </View>
+          
+          <View style={styles.textConteiner}>
+            <Text style={styles.subTitle}>Come trapiantare:</Text>
+            <Text style={styles.text}>
+              {this.props.navigation.state.params.transplant.how}
+            </Text>
           </View>
         </ScrollView>
       </View>
