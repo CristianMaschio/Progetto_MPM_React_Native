@@ -26,9 +26,10 @@ export default class SideBar extends React.Component {
         onPress={() => this.navigation("ListGreens")}
         underlayColor={colors.lightPrimary}
       >
-        <View style={styles.sideBarRowContainer}>
+        <View style={[styles.sideBarRowContainer,{borderBottomWidth: 1, borderColor: colors.lightDark}]}>
           <Image style={styles.sideBarImage} source={image} />
           <Text style={styles.subTitle}>{name}</Text>
+          <Text style={[styles.subTitle, {marginLeft: 'auto', color: "#C3C3C3"}]}>></Text>
         </View>
       </TouchableHighlight>
     );
