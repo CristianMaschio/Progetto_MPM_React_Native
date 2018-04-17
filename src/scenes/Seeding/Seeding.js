@@ -9,10 +9,11 @@ import {
 } from "react-native";
 import { Avatar, CheckBox } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
-import { Calendar } from "react-native-calendars";
-import ItemHeader from "../../components/ItemHeader/ItemHeader";
+import CalendarPicker from "react-native-calendar-picker";
 
-import { greens } from "../../services/greens";
+import ItemHeader from "../../components/ItemHeader/ItemHeader";
+import Period from "../../components/Period/Period";
+
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
 
@@ -21,8 +22,7 @@ export default class Seeding extends Component {
     super(props);
 
     this.state = {
-      checked: true,
-      dateSelected: '2018-05-16'
+      checked: true
     };
   }
 
@@ -74,36 +74,79 @@ export default class Seeding extends Component {
 
           <View style={styles.textConteiner}>
             <Text style={styles.subTitle}>Periodo di semina:</Text>
-            <Text style={styles.text}>
-              {this.state.checked
-                ? this.props.navigation.state.params.seeding.howIndoors
-                : this.props.navigation.state.params.seeding.howOutdoors}
+            {this.state.checked ? (
+              <Period
+                period={this.props.navigation.state.params.seeding.indoors}
+              />
+            ) : (
+              <Period
+                period={this.props.navigation.state.params.seeding.outdoors}
+              />
+            )}
+          </View>
+
+          <View style={styles.rowConteiner}>
+            <Text style={[styles.focus, styles.text]}>
+              Temperatura per la germinazione:
+            </Text>
+            <Text style={[styles.text, { color: "blue", marginLeft: 3 }]}>
+              {
+                this.props.navigation.state.params.seeding
+                  .temperatureGermination
+              }
+            </Text>
+          </View>
+
+          <View style={styles.rowConteiner}>
+            <Text style={[styles.focus, styles.text]}>
+              Profondità di semina:
+            </Text>
+            <Text style={[styles.text, { color: "blue", marginLeft: 3 }]}>
+              {this.props.navigation.state.params.seeding.depth}
             </Text>
           </View>
 
           <View style={styles.textConteiner}>
+            <Text style={[styles.title, { borderTopWidth: 1, marginTop: 10 }]}>
+              Semina nel tuo orto
+            </Text>
+            <Text style={styles.text}>nome</Text>
+          </View>
+
+          <View style={[styles.textConteiner]}>
             <Text style={styles.subTitle}>Seleziona il giorno di semina:</Text>
             <Text style={styles.text} />
-            <Calendar
+            <View
               style={{
+                backgroundColor: colors.lightSecondary,
                 borderWidth: 1,
                 borderColor: "gray"
               }}
-              
-            markedDates={{
-                '2018-05-16': {selected: true, marked: true},
-                '2018-05-17': {marked: true},
-                '2018-05-18': {marked: true, dotColor: 'red', activeOpacity: 0},
-                '2018-05-19': {disabled: true, disableTouchEvent: true}
-              }}
-              onDayPress={day => {
-                this.setState({ dateSelected: day.dateString });
-                console.log("selected day", day);
-              }}    
-              theme={{
-                selectedColor: 'black'
-              }}
-            />
+            >
+              <CalendarPicker
+                onDateChange={this.onDateChange}
+                weekdays={["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"]}
+                months={[
+                  "Gennaio",
+                  "Febbraio",
+                  "Marzo",
+                  "Aprile",
+                  "Maggio",
+                  "Giugno",
+                  "Luglio",
+                  "Agosto",
+                  "Settebre",
+                  "Ottobre",
+                  "Novembre",
+                  "Dicembre"
+                ]}
+                todayBackgroundColor={colors.lightPrimary}
+                previousTitle="<<<"
+                nextTitle=">>>"
+                width="350"
+                textStyle={{ fontSize: 15 }}
+              />
+            </View>
           </View>
         </ScrollView>
       </View>

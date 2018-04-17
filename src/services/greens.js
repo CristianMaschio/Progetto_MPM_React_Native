@@ -42,67 +42,67 @@ export const greens = [
         "Se si volesse mettere i semi direttamente in campo ed evitare di dover spostare la pianta si dovrà preparare un letto di semina fine e livellato, dove interrare i semi a poca profondità (circa mezzo centimetro), disposti secondo il sesto d’impianto scelto. Mettere a dimora questa coltura nell’orto può essere conveniente solo per chi si coltiva in zone a clima molto mite, sulla costa e nell’Italia meridionale, dove c’è freddo per tutto marzo è meglio ricorrere al semenzaio.",
       howIndoors:
         "Il vantaggio del semenzaio è la possibilità di anticipare il momento della semina anche di due mesi, inoltre trapiantare piantine già nate evita il rischio di lasciare spazi vuoti nei filari dell’orto, in caso alcuni semi non dovessero germinare. Questo ortaggio si semina usando contenitori alveolati o vasetti, da riempire con terriccio adatto alla semina, magari arricchito da humus di lombrico. Il seme si pone sulla superficie e si copre con un velo di terra, per poi compattare leggermente premendo il terriccio con i polpastrelli delle dita. Sia che si semini all’aperto sia che lo si faccia in semenzaio è importante bagnare subito, e anche nei giorni seguenti con quotidiana regolarità: fino a che la pianta non avrà sviluppato il suo apparato radicale non dovrà mai mancargli l’acqua.",
-      depth:"0,3 cm",
-      temperature: "10°",
+      depth: "0,3 cm",
+      temperatureGermination: "15°",
       indoors: {
-        "01": 1,
-        "02": 3,
-        "03": 3,
-        "04": 2,
-        "05": 1,
-        "06": 0,
-        "07": 0,
-        "08": 0,
-        "09": 0,
-        "10": 0,
-        "11": 0,
-        "12": 0
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 2,
+        mag: 1,
+        giu: 1,
+        lug: 0,
+        ago: 0,
+        set: 0,
+        ott: 0,
+        nov: 0,
+        dic: 0
       },
       outdoors: {
-        "01": 0,
-        "02": 0,
-        "03": 2,
-        "04": 3,
-        "05": 1,
-        "06": 0,
-        "07": 0,
-        "08": 0,
-        "09": 0,
-        "10": 0,
-        "11": 0,
-        "12": 0
+        gen: 0,
+        feb: 1,
+        mar: 2,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 0,
+        set: 0,
+        ott: 0,
+        nov: 0,
+        dic: 0
       }
     },
     transplant: {
       how:
         "Dalla semina in semenzaio si passa poi in vaso, fino allo stadio di prefioritura. A questo punto si può trapiantare, a patto che le temperature minime siano di almeno 10 gradi. I fiori hanno bisogno di minimo 13 gradi per allegare, altrimenti c’è una cascola senza frutto. Il trapianto in fase di prefioritura, quando le piante sono alte circa 30 cm, permette di disporre le piantine con i fiori rivolti all’esterno dell’aiuola, così tutti i fiori emergeranno da quel lato e sarà molto comoda la raccolta.",
       indoors: {
-        "01": 0,
-        "02": 0,
-        "03": 2,
-        "04": 3,
-        "05": 3,
-        "06": 3,
-        "07": 2,
-        "08": 1,
-        "09": 0,
-        "10": 0,
-        "11": 0,
-        "12": 0
+        gen: 0,
+        feb: 1,
+        mar: 2,
+        apr: 3,
+        mag: 3,
+        giu: 3,
+        lug: 2,
+        ago: 1,
+        set: 0,
+        ott: 0,
+        nov: 0,
+        dic: 0
       },
       outdoors: {
-        "01": 0,
-        "02": 0,
-        "03": 1,
-        "04": 3,
-        "05": 3,
-        "06": 2,
-        "07": 1,
-        "08": 0,
-        "09": 0,
-        "10": 0,
-        "11": 0,
-        "12": 0
+        gen: 0,
+        feb: 0,
+        mar: 1,
+        apr: 3,
+        mag: 3,
+        giu: 2,
+        lug: 1,
+        ago: 0,
+        set: 0,
+        ott: 0,
+        nov: 0,
+        dic: 0
       }
     },
     harvest: 30
@@ -153,11 +153,12 @@ export const greens = [
     badIntercropping: ["Prezzemolo", "Sedano"],
     seeding: {
       howIndoors: "La semina avviene dentro a dei vasetti",
-      howOutdoors: "La semina in campo avviene rispettando circa 35cm di distanza tra le piante, mettendo 2-3 semi a un centimetro di profondità",
-        depth:"0,1 cm",
-        temperature: "8°",
-        indoors: {
-        gen: 2,
+      howOutdoors:
+        "La semina in campo avviene rispettando circa 35cm di distanza tra le piante, mettendo 2-3 semi a un centimetro di profondità",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
         feb: 3,
         mar: 3,
         apr: 3,
@@ -169,20 +170,18 @@ export const greens = [
         ott: 0,
         nov: 0,
         dic: 1
-
-        
       },
       outdoors: {
         gen: 0,
-        feb: 2,
+        feb: 1,
         mar: 3,
         apr: 3,
         mag: 2,
         giu: 1,
         lug: 0,
         ago: 2,
-        set: 1,
-        ott: 0,
+        set: 2,
+        ott: 1,
         nov: 0,
         dic: 0
       }
@@ -220,5 +219,5 @@ export const greens = [
       }
     },
     harvest: 30
-  },
+  }
 ];

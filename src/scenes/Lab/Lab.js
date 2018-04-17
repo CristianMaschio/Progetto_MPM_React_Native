@@ -29,10 +29,14 @@ export default class Lab extends Component {
           <Text style={styles.title}>Seeding:</Text>
           <Seeding navigation={this.takeOneGreen()} />
 
-          <Text style={styles.title}>Planting:</Text>
-          <Planting navigation={this.takeOneGreen()} />
         </ScrollView>
       </View>
     );
   }
 }
+/*
+
+          <Text style={styles.title}>Planting:</Text>
+          <Planting navigation={this.takeOneGreen()} />
+
+*/ 
