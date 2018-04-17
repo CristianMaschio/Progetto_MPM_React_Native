@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
   },
   focus: {
     fontWeight: "bold",
-    paddingRight: 3,
+    paddingRight: 8,
     color: colors.dark
   },
   text: {

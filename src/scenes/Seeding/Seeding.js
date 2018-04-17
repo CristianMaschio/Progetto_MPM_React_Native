@@ -89,7 +89,7 @@ export default class Seeding extends Component {
             <Text style={[styles.focus, styles.text]}>
               Temperatura per la germinazione:
             </Text>
-            <Text style={[styles.text, { color: "blue", marginLeft: 3 }]}>
+            <Text style={[styles.text]}>
               {
                 this.props.navigation.state.params.seeding
                   .temperatureGermination
@@ -101,7 +101,7 @@ export default class Seeding extends Component {
             <Text style={[styles.focus, styles.text]}>
               Profondità di semina:
             </Text>
-            <Text style={[styles.text, { color: "blue", marginLeft: 3 }]}>
+            <Text style={[styles.text]}>
               {this.props.navigation.state.params.seeding.depth}
             </Text>
           </View>
