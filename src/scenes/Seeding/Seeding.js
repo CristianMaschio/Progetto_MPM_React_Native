@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Avatar, CheckBox } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
+import { Calendar } from "react-native-calendars";
 import ItemHeader from "../../components/ItemHeader/ItemHeader";
 
 import { greens } from "../../services/greens";
@@ -20,9 +21,11 @@ export default class Seeding extends Component {
     super(props);
 
     this.state = {
-      checked: true
+      checked: true,
+      dateSelected: '2018-05-16'
     };
   }
+
   render() {
     return (
       <View style={styles.conteiner}>
@@ -67,6 +70,40 @@ export default class Seeding extends Component {
                 ? this.props.navigation.state.params.seeding.howIndoors
                 : this.props.navigation.state.params.seeding.howOutdoors}
             </Text>
+          </View>
+
+          <View style={styles.textConteiner}>
+            <Text style={styles.subTitle}>Periodo di semina:</Text>
+            <Text style={styles.text}>
+              {this.state.checked
+                ? this.props.navigation.state.params.seeding.howIndoors
+                : this.props.navigation.state.params.seeding.howOutdoors}
+            </Text>
+          </View>
+
+          <View style={styles.textConteiner}>
+            <Text style={styles.subTitle}>Seleziona il giorno di semina:</Text>
+            <Text style={styles.text} />
+            <Calendar
+              style={{
+                borderWidth: 1,
+                borderColor: "gray"
+              }}
+              
+            markedDates={{
+                '2018-05-16': {selected: true, marked: true},
+                '2018-05-17': {marked: true},
+                '2018-05-18': {marked: true, dotColor: 'red', activeOpacity: 0},
+                '2018-05-19': {disabled: true, disableTouchEvent: true}
+              }}
+              onDayPress={day => {
+                this.setState({ dateSelected: day.dateString });
+                console.log("selected day", day);
+              }}    
+              theme={{
+                selectedColor: 'black'
+              }}
+            />
           </View>
         </ScrollView>
       </View>

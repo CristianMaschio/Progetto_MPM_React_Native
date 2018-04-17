@@ -48,10 +48,10 @@ const TabSelect = TabNavigator(
 )
 
 const Navigation = StackNavigator(
-  {/*
+  {
     Lab:{
       screen: Lab
-    },*/
+    },
     ListGreens: {
       screen: ListGreens
     },
