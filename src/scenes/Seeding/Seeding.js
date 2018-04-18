@@ -9,10 +9,10 @@ import {
 } from "react-native";
 import { Avatar, CheckBox } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
-import CalendarPicker from "react-native-calendar-picker";
 
 import ItemHeader from "../../components/ItemHeader/ItemHeader";
 import Period from "../../components/Period/Period";
+import AddGreen from "../../components/AddGreen/AddGreen";
 
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
@@ -105,49 +105,9 @@ export default class Seeding extends Component {
               {this.props.navigation.state.params.seeding.depth}
             </Text>
           </View>
-
-          <View style={styles.textConteiner}>
-            <Text style={[styles.title, { borderTopWidth: 1, marginTop: 10 }]}>
-              Semina nel tuo orto
-            </Text>
-            <Text style={styles.text}>nome</Text>
-          </View>
-
-          <View style={[styles.textConteiner]}>
-            <Text style={styles.subTitle}>Seleziona il giorno di semina:</Text>
-            <Text style={styles.text} />
-            <View
-              style={{
-                backgroundColor: colors.lightSecondary,
-                borderWidth: 1,
-                borderColor: "gray"
-              }}
-            >
-              <CalendarPicker
-                onDateChange={this.onDateChange}
-                weekdays={["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"]}
-                months={[
-                  "Gennaio",
-                  "Febbraio",
-                  "Marzo",
-                  "Aprile",
-                  "Maggio",
-                  "Giugno",
-                  "Luglio",
-                  "Agosto",
-                  "Settebre",
-                  "Ottobre",
-                  "Novembre",
-                  "Dicembre"
-                ]}
-                todayBackgroundColor={colors.lightPrimary}
-                previousTitle="<<<"
-                nextTitle=">>>"
-                width="350"
-                textStyle={{ fontSize: 15 }}
-              />
-            </View>
-          </View>
+            
+          <AddGreen greenName={this.props.navigation.state.params.name} />
+          
         </ScrollView>
       </View>
     );

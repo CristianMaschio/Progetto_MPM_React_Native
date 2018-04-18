@@ -15,16 +15,7 @@ export default class Lab extends Component {
 
   render() {
     return (
-      <View style={styles.conteiner}>
-        <Text
-          style={[
-            styles.title,
-            { textAlign: "center", backgroundColor: colors.lightPrimary }
-          ]}
-        >
-          Lab
-        </Text>
-
+      <View>
         <ScrollView>
           <Text style={styles.title}>Seeding:</Text>
           <Seeding navigation={this.takeOneGreen()} />

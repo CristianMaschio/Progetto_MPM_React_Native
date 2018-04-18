@@ -35,7 +35,6 @@ export default class Green extends Component {
               ratingImage={require("./star.png")}
               startingValue={this.props.navigation.state.params.difficulty}
               ratingBackgroundColor={colors.secondary}
-              style={{ flex: 1 }}
             />
           </View>
 
@@ -48,11 +47,9 @@ export default class Green extends Component {
               {this.props.navigation.state.params.tempMax}
             </Text>
           </View>
-          
+
           <View style={styles.rowConteiner}>
-            <Text style={[styles.focus, styles.text]}>
-              Apporto luce:
-            </Text>
+            <Text style={[styles.focus, styles.text]}>Apporto luce:</Text>
             <Text style={[styles.text]}>
               {this.props.navigation.state.params.sun}
             </Text>
@@ -75,9 +72,7 @@ export default class Green extends Component {
             </Text>
           </View>
           <View style={styles.rowConteiner}>
-            <Text style={[styles.focus, styles.text]}>
-              Litraggio vaso:
-            </Text>
+            <Text style={[styles.focus, styles.text]}>Litraggio vaso:</Text>
             <Text style={[styles.text]}>
               {this.props.navigation.state.params.literGround}
             </Text>

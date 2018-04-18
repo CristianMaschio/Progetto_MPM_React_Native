@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: "bold",
     textAlignVertical: "center",
+    textAlign: "center",
     color: colors.dark
   },
   subTitle: {
@@ -20,7 +21,7 @@ export const styles = StyleSheet.create({
   },
   focus: {
     fontWeight: "bold",
-    paddingRight: 8,
+    paddingRight: 5,
     color: colors.dark
   },
   text: {
@@ -34,7 +35,7 @@ export const styles = StyleSheet.create({
   },
   textConteiner: {
     flex: 1,
-    paddingBottom: 10
+    marginBottom: 10
   },
   conteiner: {
     backgroundColor: colors.secondary,
@@ -58,5 +59,15 @@ export const styles = StyleSheet.create({
     height: 30,
     marginLeft: 10,
     marginRight: 20
+  },
+  textInputGreen: {
+    width: 250,
+    textAlign: "center",
+    marginLeft: "auto"
+  },
+  setBox: {
+    backgroundColor: colors.lightSecondary,
+    borderWidth: 1,
+    borderColor: "gray"
   }
 });

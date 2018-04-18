@@ -9,7 +9,10 @@ import {
 } from "react-native";
 import { Avatar, CheckBox } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
+
 import ItemHeader from "../../components/ItemHeader/ItemHeader";
+import Period from "../../components/Period/Period";
+import AddGreen from "../../components/AddGreen/AddGreen";
 
 import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
@@ -60,6 +63,22 @@ export default class Planting extends Component {
               {this.props.navigation.state.params.transplant.how}
             </Text>
           </View>
+
+          <View style={styles.textConteiner}>
+            <Text style={styles.subTitle}>Quando piantare:</Text>
+            {this.state.checked ? (
+              <Period
+                period={this.props.navigation.state.params.transplant.indoors}
+              />
+            ) : (
+              <Period
+                period={this.props.navigation.state.params.transplant.outdoors}
+              />
+            )}
+          </View>
+
+          <AddGreen greenName={this.props.navigation.state.params.name} isSeeding={false} />
+
         </ScrollView>
       </View>
     );
