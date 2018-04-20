@@ -22,11 +22,24 @@ export default class AddGreen extends Component {
         ? "Seleziona il giorno della semina"
         : "Seleziona il giorno del trapianto"
     };
+    this.focus = {};
+    this.handleButtomPress = this.handleButtomPress.bind(this);
   }
   static defaultProps = {
     greenName: "",
     isSeeding: true
   };
+
+  handleButtomPress() {
+    if (this.state.greenName === "") {
+      this.focus["name"].focus();
+      return;
+    }
+    if (!this.props.isSeeding && this.state.quantity===0) {
+      this.focus["quantity"].focus();
+      return;
+    }
+  }
 
   render() {
     return (
@@ -43,17 +56,21 @@ export default class AddGreen extends Component {
           <View style={styles.rowConteiner}>
             <Text style={[styles.focus, { fontSize: 20 }]}>Nome:</Text>
             <TextInput
+              ref={ref => (this.focus["name"] = ref)}
               style={[styles.text, styles.textInputGreen, styles.setBox]}
               underlineColorAndroid="transparent"
               placeholder="inserisci il nome"
-              value={this.props.greenName}
-            />
+              onChangeText={text => this.setState({ greenName: text })}
+            >
+              {this.props.greenName}
+            </TextInput>
           </View>
 
           {!this.props.isSeeding && (
             <View style={styles.rowConteiner}>
               <Text style={[styles.focus, { fontSize: 20 }]}>Quantità:</Text>
               <TextInput
+                ref={ref => (this.focus["quantity"] = ref)}
                 style={[styles.text, styles.textInputGreen, styles.setBox]}
                 underlineColorAndroid="transparent"
                 placeholder="inserisci la quantità"
@@ -95,7 +112,7 @@ export default class AddGreen extends Component {
         </View>
         <View style={[styles.textConteiner]}>
           <Button
-            onPress={() => console.log("funziona")}
+            onPress={() => this.handleButtomPress()}
             title={this.state.buttomTitle}
             color={colors.success}
             accessibilityLabel="Learn more about this purple button"
