@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
   Image
 } from "react-native";
-import { List, ListItem } from "react-native-elements";
+import { ListItem } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
 
 import { greens } from "../../services/greens";
@@ -19,7 +19,6 @@ export default class ListGreens extends Component {
     return (
       <View style={{ backgroundColor: colors.secondary, flex: 1}}>
         <ScrollView>
-          <List>
             {greens.map(green => (
               <ListItem
                 key={green.name}
@@ -35,7 +34,6 @@ export default class ListGreens extends Component {
                 containerStyle={{backgroundColor: colors.secondary}}
               />
             ))}
-          </List>
         </ScrollView>
       </View>
     );

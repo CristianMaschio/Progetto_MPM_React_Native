@@ -9,6 +9,7 @@ import Green from "./src/scenes/Green/Green";
 import Seeding from "./src/scenes/Seeding/Seeding";
 import Planting from "./src/scenes/Planting/Planting";
 import Lab from "./src/scenes/Lab/Lab";
+import MyGarden from './src/scenes/MyGarden/MyGarden';
 
 import SideBar from "./src/components/SideBar/SideBar";
 
@@ -49,7 +50,10 @@ const TabSelect = TabNavigator(
 
 const Navigation = StackNavigator(
   {
-    Lab:{
+    
+    MyGarden: {
+      screen: MyGarden
+    },Lab:{
       screen: Lab
     },
     ListGreens: {

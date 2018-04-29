@@ -4,6 +4,7 @@ import CalendarPicker from "react-native-calendar-picker";
 
 import { styles } from "../../services/styles";
 import { colors } from "../../services/colors";
+import myGardenGreens from "../../utils/myGardenGreens";
 
 export default class AddGreen extends Component {
   constructor(props) {
@@ -35,10 +36,21 @@ export default class AddGreen extends Component {
       this.focus["name"].focus();
       return;
     }
-    if (!this.props.isSeeding && this.state.quantity===0) {
+    if (!this.props.isSeeding && this.state.quantity === 0) {
       this.focus["quantity"].focus();
       return;
     }
+    let myGreen = [
+      {
+        id: new Date(),
+        greenName: this.props.greenName,
+        name: this.state.greenName,
+        isSeeding: this.props.isSeeding,
+        date: this.state.daySelected,
+        quantity: this.state.quantity
+      }
+    ];
+    myGardenGreens.addMyGardenGreen(myGreen);
   }
 
   render() {
@@ -75,6 +87,7 @@ export default class AddGreen extends Component {
                 underlineColorAndroid="transparent"
                 placeholder="inserisci la quantità"
                 keyboardType="numeric"
+                onChangeText={text => this.setState({ quantity: text })}
               />
             </View>
           )}
@@ -87,6 +100,7 @@ export default class AddGreen extends Component {
           <CalendarPicker
             onDateChange={day => {
               this.setState({ daySelected: day });
+              console.log(day);
             }}
             weekdays={["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"]}
             months={[
@@ -108,6 +122,7 @@ export default class AddGreen extends Component {
             nextTitle=">>>"
             width="350"
             textStyle={{ fontSize: 15 }}
+            enableSwipe={false}
           />
         </View>
         <View style={[styles.textConteiner]}>

@@ -4,6 +4,7 @@ import { Text, View, ScrollView } from "react-native";
 import { styles } from "../../services/styles";
 import Seeding from "../Seeding/Seeding";
 import Planting from "../Planting/Planting";
+import MyGarden from "../MyGarden/MyGarden";
 
 import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
@@ -17,9 +18,7 @@ export default class Lab extends Component {
     return (
       <View>
         <ScrollView>
-          <Text style={styles.title}>Seeding:</Text>
-          <Seeding navigation={this.takeOneGreen()} />
-
+          <Text style={styles.title}>MyGarden:</Text>
         </ScrollView>
       </View>
     );

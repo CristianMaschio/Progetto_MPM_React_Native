@@ -23,7 +23,7 @@ export default class SideBar extends React.Component {
   element(link, name, image) {
     return (
       <TouchableHighlight
-        onPress={() => this.navigation("ListGreens")}
+        onPress={() => this.navigation(link)}
         underlayColor={colors.lightPrimary}
       >
         <View
@@ -53,7 +53,7 @@ export default class SideBar extends React.Component {
           "Lista Ortaggi",
           require("../img/list.png")
         )}
-        {this.element("ListGreens", "Il mio orto", require("../img/plant.png"))}
+        {this.element("MyGarden", "Il mio orto", require("../img/plant.png"))}
       </View>
     );
   }
