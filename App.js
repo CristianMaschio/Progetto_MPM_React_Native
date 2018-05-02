@@ -9,7 +9,7 @@ import Green from "./src/scenes/Green/Green";
 import Seeding from "./src/scenes/Seeding/Seeding";
 import Planting from "./src/scenes/Planting/Planting";
 import Lab from "./src/scenes/Lab/Lab";
-import MyGarden from './src/scenes/MyGarden/MyGarden';
+import MyGarden from "./src/scenes/MyGarden/MyGarden";
 
 import SideBar from "./src/components/SideBar/SideBar";
 
@@ -20,40 +20,44 @@ const TabSelect = TabNavigator(
     Green: {
       screen: Green,
       navigationOptions: {
-        title: 'Ortaggio'
+        title: "Ortaggio"
       }
     },
     Seeding: {
       screen: Seeding,
-      navigationOptions: {                                           
-        title: 'Semina'
+      navigationOptions: {
+        title: "Semina"
       }
     },
     Planting: {
       screen: Planting,
       navigationOptions: {
-        title: 'Trapianta'
+        title: "Trapianta"
       }
     }
-  },{
-    tabBarPosition: 'bottom',
-    tabBarOptions:  {
-    style: {backgroundColor: colors.secondary},
-    labelStyle: {
-      color: colors.dark,
-      fontWeight: 'bold'
-    },
-    tabStyle: {backgroundColor: colors.primary, borderBottomColor: colors.success}
+  },
+  {
+    tabBarPosition: "bottom",
+    tabBarOptions: {
+      style: { backgroundColor: colors.secondary },
+      labelStyle: {
+        color: colors.dark,
+        fontWeight: "bold"
+      },
+      tabStyle: {
+        backgroundColor: colors.primary,
+        borderBottomColor: colors.success
+      }
     }
   }
-)
+);
 
 const Navigation = StackNavigator(
   {
-    
     MyGarden: {
       screen: MyGarden
-    },Lab:{
+    },
+    Lab: {
       screen: Lab
     },
     ListGreens: {
