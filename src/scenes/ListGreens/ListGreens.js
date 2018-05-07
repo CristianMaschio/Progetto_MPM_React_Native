@@ -14,6 +14,11 @@ import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
 
 export default class ListGreens extends Component {
+  
+  static navigationOptions = {
+    title: 'Lista ortaggi',
+  };
+
   render() {
     const { navigate } = this.props.navigation;
     return (

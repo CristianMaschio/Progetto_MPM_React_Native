@@ -106,7 +106,7 @@ export default class Seeding extends Component {
             </Text>
           </View>
             
-          <AddGreen greenName={this.props.navigation.state.params.name} />
+          <AddGreen greenName={this.props.navigation.state.params.name} navigation={this.props.navigation} />
           
         </ScrollView>
       </View>

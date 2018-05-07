@@ -71,7 +71,6 @@ const Navigation = StackNavigator(
     headerMode: "float",
     mode: "card",
     navigationOptions: ({ navigation }) => ({
-      title: "SmartOrto",
       headerStyle: {
         backgroundColor: colors.primary
       },

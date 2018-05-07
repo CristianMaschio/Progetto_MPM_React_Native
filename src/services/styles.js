@@ -69,5 +69,20 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.lightSecondary,
     borderWidth: 1,
     borderColor: "gray"
+  },
+  button:{
+    backgroundColor: colors.primary ,
+    marginBottom: 2,
+    padding: 10
+  },
+  dangerButton: {
+    backgroundColor: colors.danger ,
+    marginBottom: 2,
+    padding: 10
+  },
+  successButtom: {
+    backgroundColor: colors.success ,
+    marginBottom: 2,
+    padding: 10
   }
 });

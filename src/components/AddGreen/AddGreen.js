@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, TextInput, Button } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
+import { StackNavigator } from "react-navigation";
 
 import { styles } from "../../services/styles";
 import { colors } from "../../services/colors";
@@ -51,6 +52,7 @@ export default class AddGreen extends Component {
       }
     ];
     myGardenGreens.addMyGardenGreen(myGreen);
+    this.props.navigation.navigate('MyGarden');
   }
 
   render() {

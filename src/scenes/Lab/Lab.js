@@ -10,10 +10,13 @@ import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
 
 export default class Lab extends Component {
+  static navigationOptions = {
+    title: 'Lab',
+  };
+
   takeOneGreen() {
     return { state: { params: greens[1] } };
-  }
-
+  }  
   render() {
     return (
       <View>
