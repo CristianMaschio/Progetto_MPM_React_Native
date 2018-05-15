@@ -77,7 +77,7 @@ export default class Planting extends Component {
             )}
           </View>
 
-          <AddGreen greenName={this.props.navigation.state.params.name} isSeeding={false} navigation={this.props.navigation} />
+          <AddGreen greenName={this.props.navigation.state.params.name} isForSeeding={false} navigation={this.props.navigation} />
 
         </ScrollView>
       </View>

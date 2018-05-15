@@ -34,7 +34,7 @@ export default class MyGarden extends Component {
       this.setState({ myGardenGreens: myGreens });
     });
   }
-  
+
   static navigationOptions = {
     title: "Il mio orto"
   };
@@ -63,7 +63,7 @@ export default class MyGarden extends Component {
   handleSeeding() {
     this.state.myGardenGreens.forEach(myGreen => {
       if (myGreen.id === this.state.greenSelected.id)
-        myGreen.isSeeding = !myGreen.isSeeding;
+        myGreen.isForSeeding = !myGreen.isForSeeding;
     });
     console.log(this.state.myGardenGreens);
     myGardenGreens.saveMyGardenGreens(this.state.myGardenGreens);
@@ -72,7 +72,7 @@ export default class MyGarden extends Component {
   handlePlanting() {
     myGreens = this.state.myGardenGreens.forEach(myGreen => {
       if (myGreen.id === this.state.greenSelected.id)
-        myGreen.isPlanting = !myGreen.isPlanting;
+        myGreen.isForPlanting = !myGreen.isForPlanting;
     });
     myGardenGreens.saveMyGardenGreens(myGreens);}
 
@@ -90,20 +90,20 @@ export default class MyGarden extends Component {
           buttonStyle={styles.button}
           title="Modifica"
         />
-        <Button
+        {this.state.greenSelected.isForSeeding && this.state.greenSelected.isForPlanting && <Button
           large
           rounded={true}
           buttonStyle={styles.successButtom}
           title="Semina effettuata"
           onPress={this.handleSeeding}
-        />
-        <Button
+        />}
+        {!this.state.greenSelected.isForSeeding && this.state.greenSelected.isForPlanting && <Button
           large
           rounded={true}
           buttonStyle={styles.successButtom}
           title="Trapianto effettuato"
           onPress={this.handlePlanting}
-        />
+        />}
         <Button
           large
           rounded={true}
@@ -150,7 +150,7 @@ export default class MyGarden extends Component {
                   <View style={{ marginLeft: 10 }}>
                     <Text>
                       {" "}
-                      {myGreen.isSeeding
+                      {myGreen.isForSeeding
                         ? "Semina programmata per il: " +
                           format(myGreen.date, "DD/MM/YYYY")
                         : "Trapianto programmato per il: " +

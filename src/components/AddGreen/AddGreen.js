@@ -29,7 +29,7 @@ export default class AddGreen extends Component {
   }
   static defaultProps = {
     greenName: "",
-    isSeeding: true
+    isForSeeding: true
   };
 
   async handleButtomPress() {
@@ -46,8 +46,8 @@ export default class AddGreen extends Component {
         id: new Date(),
         greenName: this.props.greenName,
         name: this.state.greenName,
-        isSeeding: this.props.isSeeding,
-        isPlanting: false,
+        isForSeeding: this.props.isSeeding,
+        isForPlanting: true,
         date: this.state.daySelected,
         quantity: this.state.quantity
       }
@@ -81,7 +81,7 @@ export default class AddGreen extends Component {
             </TextInput>
           </View>
 
-          {!this.props.isSeeding && (
+          {!this.props.isForSeeding && (
             <View style={styles.rowConteiner}>
               <Text style={[styles.focus, { fontSize: 20 }]}>Quantità:</Text>
               <TextInput

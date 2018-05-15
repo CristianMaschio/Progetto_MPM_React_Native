@@ -5,8 +5,8 @@ import { AsyncStorage } from "react-native";
     id: new Date(),
     greenName: string,
     name: string,
-    isSeeding: boolean,
-    isPlanting: boolean,
+    isForSeeding: boolean, //is for seeding
+    isForPlanting: boolean, //is for planting
     date: Date,
     quantity: number
   }
