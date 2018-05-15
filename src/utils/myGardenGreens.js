@@ -6,6 +6,7 @@ import { AsyncStorage } from "react-native";
     greenName: string,
     name: string,
     isSeeding: boolean,
+    isPlanting: boolean,
     date: Date,
     quantity: number
   }
@@ -18,12 +19,12 @@ function saveMyGardenGreens(myGarden) {
 async function addMyGardenGreen(myGreen) {
   const oldGarden = await getMyGardenGreens();
   let myGarden = [];
-  console.log("PRIMO");
-  console.log(oldGarden);
+  // console.log("PRIMO");
+  // console.log(oldGarden);
   if (oldGarden) myGarden = oldGarden;
   myGarden.push(...myGreen);
-  console.log("SECONDO");
-  console.log(myGarden);
+  // console.log("SECONDO");
+  // console.log(myGarden);
   AsyncStorage.setItem("MyGarden", JSON.stringify(myGarden));
 }
 
@@ -37,7 +38,7 @@ function deleteMyGarden(myGarden) {
 
 async function getMyGardenGreens() {
   let myGarden = await AsyncStorage.getItem("MyGarden");
-  console.log(myGarden);
+  console.log('GET');
   return JSON.parse(myGarden);
 }
 

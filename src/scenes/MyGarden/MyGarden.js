@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  AppRegistry,
-  TouchableHighlight,
-  Image,
-  AsyncStorage
-} from "react-native";
+import { Text, View, ScrollView, AppRegistry } from "react-native";
 import { ListItem, Button } from "react-native-elements";
 import { StackNavigator } from "react-navigation";
 import * as Progress from "react-native-progress";
@@ -25,23 +17,28 @@ export default class MyGarden extends Component {
 
     this.state = {
       myGardenGreens: [],
-      isVisible: false
+      isVisible: false,
+      greenSelected: null
     };
     this.handleIsVisible = this.handleIsVisible.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handlePlanting = this.handlePlanting.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
+    this.handleSeeding = this.handleSeeding.bind(this);
   }
 
   componentWillMount() {
-    //myGardenGreens.deleteMyGarden();
+    // myGardenGreens.deleteMyGarden();
+    console.log('MyGarden will mount');
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
     });
   }
-
+  
   static navigationOptions = {
-    title: 'Il mio orto',
+    title: "Il mio orto"
   };
 
-  
   getProgress(dateStart, dateEnd) {
     if (new Date().getTime() >= new Date(dateEnd).getTime()) return 1;
     else {
@@ -56,9 +53,33 @@ export default class MyGarden extends Component {
     }
   }
 
-  handleIsVisible() {
-    this.setState({ isVisible: !this.state.isVisible });
+  handleIsVisible(green) {
+    this.setState({ isVisible: !this.state.isVisible, greenSelected: green });
   }
+
+  handleChange() {
+  }
+
+  handleSeeding() {
+    this.state.myGardenGreens.forEach(myGreen => {
+      if (myGreen.id === this.state.greenSelected.id)
+        myGreen.isSeeding = !myGreen.isSeeding;
+    });
+    console.log(this.state.myGardenGreens);
+    myGardenGreens.saveMyGardenGreens(this.state.myGardenGreens);
+  }
+
+  handlePlanting() {
+    myGreens = this.state.myGardenGreens.forEach(myGreen => {
+      if (myGreen.id === this.state.greenSelected.id)
+        myGreen.isPlanting = !myGreen.isPlanting;
+    });
+    myGardenGreens.saveMyGardenGreens(myGreens);}
+
+  handleRemove() {
+
+  }
+
 
   renderOverlay() {
     return (
@@ -74,12 +95,14 @@ export default class MyGarden extends Component {
           rounded={true}
           buttonStyle={styles.successButtom}
           title="Semina effettuata"
+          onPress={this.handleSeeding}
         />
         <Button
           large
           rounded={true}
           buttonStyle={styles.successButtom}
           title="Trapianto effettuato"
+          onPress={this.handlePlanting}
         />
         <Button
           large
@@ -96,7 +119,6 @@ export default class MyGarden extends Component {
     return (
       <View style={{ backgroundColor: colors.secondary, flex: 1 }}>
         <ScrollView>
-          {console.log(this.state.myGardenGreens)}
           {this.state.myGardenGreens !== null &&
             this.state.myGardenGreens.map((myGreen, index) => (
               <ListItem
@@ -116,7 +138,7 @@ export default class MyGarden extends Component {
                     })
                   )
                 }
-                onLongPress={this.handleIsVisible}
+                onLongPress={()=>this.handleIsVisible(myGreen)}
                 titleStyle={{
                   fontSize: 18,
                   fontWeight: "bold",
@@ -150,7 +172,7 @@ export default class MyGarden extends Component {
           closeOnTouchOutside
           onClose={this.handleIsVisible}
           animationType="zoomIn"
-          childrenWrapperStyle={{ padding: 10}}
+          childrenWrapperStyle={{ padding: 10 }}
           animationDuration={500}
         >
           {this.renderOverlay()}

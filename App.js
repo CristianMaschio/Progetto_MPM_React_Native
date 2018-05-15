@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, TouchableHighlight, StyleSheet } from "react-native";
-import { StackNavigator, TabNavigator } from "react-navigation";
+import { createStackNavigator, createTabNavigator } from "react-navigation";
 import Drawer from "react-native-drawer";
 import NavigationService from "./src/utils/NavigationService";
 
@@ -15,7 +15,7 @@ import SideBar from "./src/components/SideBar/SideBar";
 
 import { colors } from "./src/services/colors";
 
-const TabSelect = TabNavigator(
+const TabSelect = createTabNavigator(
   {
     Green: {
       screen: Green,
@@ -43,6 +43,9 @@ const TabSelect = TabNavigator(
       labelStyle: {
         color: colors.dark,
         fontWeight: "bold"
+        /*
+        textAlignVertical: 'center',
+        fontSize: 10*/
       },
       tabStyle: {
         backgroundColor: colors.primary,
@@ -52,7 +55,7 @@ const TabSelect = TabNavigator(
   }
 );
 
-const Navigation = StackNavigator(
+const Navigation = createStackNavigator(
   {
     MyGarden: {
       screen: MyGarden
@@ -64,7 +67,10 @@ const Navigation = StackNavigator(
       screen: ListGreens
     },
     Green: {
-      screen: TabSelect
+      screen: TabSelect,
+      navigationOptions: {
+        title: "Ortaggio"
+      }
     }
   },
   {

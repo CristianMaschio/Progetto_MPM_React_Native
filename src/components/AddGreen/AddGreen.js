@@ -32,7 +32,7 @@ export default class AddGreen extends Component {
     isSeeding: true
   };
 
-  handleButtomPress() {
+  async handleButtomPress() {
     if (this.state.greenName === "") {
       this.focus["name"].focus();
       return;
@@ -47,11 +47,12 @@ export default class AddGreen extends Component {
         greenName: this.props.greenName,
         name: this.state.greenName,
         isSeeding: this.props.isSeeding,
+        isPlanting: false,
         date: this.state.daySelected,
         quantity: this.state.quantity
       }
     ];
-    myGardenGreens.addMyGardenGreen(myGreen);
+    await myGardenGreens.addMyGardenGreen(myGreen);
     this.props.navigation.navigate('MyGarden');
   }
 
