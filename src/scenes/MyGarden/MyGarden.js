@@ -28,8 +28,15 @@ export default class MyGarden extends Component {
   }
 
   componentWillMount() {
-    // myGardenGreens.deleteMyGarden();
-    console.log('MyGarden will mount');
+  // myGardenGreens.deleteMyGarden();
+    myGardenGreens.getMyGardenGreens().then(myGreens => {
+      this.setState({ myGardenGreens: myGreens });
+    });
+  }
+
+  componentWillReceiveProps(){
+    
+    console.log("MyGarden will mount");
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
     });
@@ -57,29 +64,30 @@ export default class MyGarden extends Component {
     this.setState({ isVisible: !this.state.isVisible, greenSelected: green });
   }
 
-  handleChange() {
-  }
+  handleChange() {}
 
   handleSeeding() {
-    this.state.myGardenGreens.forEach(myGreen => {
+    myGreens = this.state.myGardenGreens.slice();
+    myGreens.forEach(myGreen => {
       if (myGreen.id === this.state.greenSelected.id)
         myGreen.isForSeeding = !myGreen.isForSeeding;
     });
-    console.log(this.state.myGardenGreens);
-    myGardenGreens.saveMyGardenGreens(this.state.myGardenGreens);
+    console.log(myGreens);
+    myGardenGreens.saveMyGardenGreens(myGreens);
+    this.setState({ myGardenGreens: myGreens, isVisible: false });
   }
 
   handlePlanting() {
-    myGreens = this.state.myGardenGreens.forEach(myGreen => {
+    myGreens = this.state.myGardenGreens.slice();
+    myGreens.forEach(myGreen => {
       if (myGreen.id === this.state.greenSelected.id)
         myGreen.isForPlanting = !myGreen.isForPlanting;
     });
-    myGardenGreens.saveMyGardenGreens(myGreens);}
-
-  handleRemove() {
-
+    myGardenGreens.saveMyGardenGreens(myGreens);
+    this.setState({ myGardenGreens: myGreens, isVisible: false });
   }
 
+  handleRemove() {}
 
   renderOverlay() {
     return (
@@ -90,20 +98,26 @@ export default class MyGarden extends Component {
           buttonStyle={styles.button}
           title="Modifica"
         />
-        {this.state.greenSelected.isForSeeding && this.state.greenSelected.isForPlanting && <Button
-          large
-          rounded={true}
-          buttonStyle={styles.successButtom}
-          title="Semina effettuata"
-          onPress={this.handleSeeding}
-        />}
-        {!this.state.greenSelected.isForSeeding && this.state.greenSelected.isForPlanting && <Button
-          large
-          rounded={true}
-          buttonStyle={styles.successButtom}
-          title="Trapianto effettuato"
-          onPress={this.handlePlanting}
-        />}
+        {this.state.greenSelected.isForSeeding &&
+          this.state.greenSelected.isForPlanting && (
+            <Button
+              large
+              rounded={true}
+              buttonStyle={styles.successButtom}
+              title="Semina effettuata"
+              onPress={this.handleSeeding}
+            />
+          )}
+        {!this.state.greenSelected.isForSeeding &&
+          this.state.greenSelected.isForPlanting && (
+            <Button
+              large
+              rounded={true}
+              buttonStyle={styles.successButtom}
+              title="Trapianto effettuato"
+              onPress={this.handlePlanting}
+            />
+          )}
         <Button
           large
           rounded={true}
@@ -119,7 +133,7 @@ export default class MyGarden extends Component {
     return (
       <View style={{ backgroundColor: colors.secondary, flex: 1 }}>
         <ScrollView>
-          {this.state.myGardenGreens !== null &&
+          {this.state.myGardenGreens &&
             this.state.myGardenGreens.map((myGreen, index) => (
               <ListItem
                 key={index}
@@ -138,7 +152,7 @@ export default class MyGarden extends Component {
                     })
                   )
                 }
-                onLongPress={()=>this.handleIsVisible(myGreen)}
+                onLongPress={() => this.handleIsVisible(myGreen)}
                 titleStyle={{
                   fontSize: 18,
                   fontWeight: "bold",
@@ -150,11 +164,16 @@ export default class MyGarden extends Component {
                   <View style={{ marginLeft: 10 }}>
                     <Text>
                       {" "}
-                      {myGreen.isForSeeding
+                      {myGreen.isForPlanting && (myGreen.isForSeeding
                         ? "Semina programmata per il: " +
                           format(myGreen.date, "DD/MM/YYYY")
                         : "Trapianto programmato per il: " +
-                          format(myGreen.date, "DD/MM/YYYY")}
+                          format(myGreen.date, "DD/MM/YYYY"))}
+                      {!myGreen.isForPlanting &&
+                        "Hai piantato: " +
+                          myGreen.quantity +
+                          " " +
+                          myGreen.name}
                     </Text>
 
                     <Progress.Bar
@@ -167,16 +186,18 @@ export default class MyGarden extends Component {
               />
             ))}
         </ScrollView>
-        <Overlay
-          visible={this.state.isVisible}
-          closeOnTouchOutside
-          onClose={this.handleIsVisible}
-          animationType="zoomIn"
-          childrenWrapperStyle={{ padding: 10 }}
-          animationDuration={500}
-        >
-          {this.renderOverlay()}
-        </Overlay>
+        {this.state.greenSelected && (
+          <Overlay
+            visible={this.state.isVisible}
+            closeOnTouchOutside
+            onClose={this.handleIsVisible}
+            animationType="zoomIn"
+            childrenWrapperStyle={{ padding: 10 }}
+            animationDuration={500}
+          >
+            {this.renderOverlay()}
+          </Overlay>
+        )}
       </View>
     );
   }

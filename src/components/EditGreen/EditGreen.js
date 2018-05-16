@@ -8,31 +8,27 @@ import { colors } from "../../services/colors";
 import myGardenGreens from "../../utils/myGardenGreens";
 import HandleError from "../HandleError/HandleError";
 
-export default class AddGreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      greenName: this.props.greenName,
-      quantity: 0,
-      daySelected: "",
-      textError: "",
-      title: this.props.isForSeeding
-        ? "Semina nel tuo orto"
-        : "Trapianta nel tuo orto",
-      buttomTitle: this.props.isForSeeding
-        ? "Imposta la semina nel tuo orto"
-        : "Imposta il trapianto nel tuo orto",
-      daySelctTitle: this.props.isForSeeding
-        ? "Seleziona il giorno della semina"
-        : "Seleziona il giorno del trapianto"
+export default class EditGreen extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        greenName: this.props.myGreen.name,
+        quantity: this.props.myGreen.quantity,
+        daySelected: this.props.myGreen.date,
+        textError: "",
+        title: this.props.myGreen.isForSeeding
+          ? "Semina nel tuo orto"
+          : "Trapianta nel tuo orto",
+        daySelctTitle: this.props.myGreen.isForSeeding
+          ? "Seleziona il giorno della semina"
+          : "Seleziona il giorno del trapianto"
+      };
+      this.focus = {};
+      this.handleButtomPress = this.handleButtomPress.bind(this);
+    }
+    static defaultProps = {
+      myGreen: null
     };
-    this.focus = {};
-    this.handleButtomPress = this.handleButtomPress.bind(this);
-  }
-  static defaultProps = {
-    greenName: "",
-    isForSeeding: true
-  };
 
   async handleButtomPress() {
     if (this.state.greenName === "") {
@@ -144,7 +140,7 @@ export default class AddGreen extends Component {
         <View style={[styles.textConteiner]}>
           <Button
             onPress={() => this.handleButtomPress()}
-            title={this.state.buttomTitle}
+            title="Effettua la modifica"
             color={colors.success}
           />
         </View>
