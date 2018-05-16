@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
   },
   conteiner: {
     backgroundColor: colors.secondary,
-    flex: 1,
+    flex: 2,
     paddingLeft: 10,
     paddingRight: 10
   },

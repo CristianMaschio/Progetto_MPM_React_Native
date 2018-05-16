@@ -64,7 +64,11 @@ export default class MyGarden extends Component {
     this.setState({ isVisible: !this.state.isVisible, greenSelected: green });
   }
 
-  handleChange() {}
+  handleChange() {
+    const myGreen = this.state.greenSelected;
+    const myGreens = this.state.myGardenGreens;
+    this.props.navigation.navigate("EditGreen", {myGreen: myGreen, myGreens: myGreens} );
+  }
 
   handleSeeding() {
     myGreens = this.state.myGardenGreens.slice();
@@ -92,11 +96,13 @@ export default class MyGarden extends Component {
   renderOverlay() {
     return (
       <View>
+        <Text style={[styles.subTitle, {textAlign: 'center'}]} >{this.state.greenSelected.name}</Text>
         <Button
           large
           rounded={true}
           buttonStyle={styles.button}
           title="Modifica"
+          onPress={this.handleChange}
         />
         {this.state.greenSelected.isForSeeding &&
           this.state.greenSelected.isForPlanting && (

@@ -10,6 +10,7 @@ import Seeding from "./src/scenes/Seeding/Seeding";
 import Planting from "./src/scenes/Planting/Planting";
 import Lab from "./src/scenes/Lab/Lab";
 import MyGarden from "./src/scenes/MyGarden/MyGarden";
+import EditGreen from "./src/scenes/EditGreen/EditGreen";
 
 import SideBar from "./src/components/SideBar/SideBar";
 
@@ -65,6 +66,9 @@ const Navigation = createStackNavigator(
     },
     ListGreens: {
       screen: ListGreens
+    },
+    EditGreen: {
+      screen: EditGreen
     },
     Green: {
       screen: TabSelect,
