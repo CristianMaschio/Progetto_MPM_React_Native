@@ -1,19 +1,11 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  TextInput,
-  AppRegistry,
-  Button,
-  ScrollView
-} from "react-native";
+import { AppRegistry, Button, ScrollView, Text, TextInput, View } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
-import { StackNavigator } from "react-navigation";
-
-import { styles } from "../../services/styles";
-import { colors } from "../../services/colors";
-import myGardenGreens from "../../utils/myGardenGreens";
 import HandleError from "../../components/HandleError/HandleError";
+import { colors } from "../../services/colors";
+import { styles } from "../../services/styles";
+import myGardenGreens from "../../utils/myGardenGreens";
+
 
 export default class EditGreen extends Component {
   constructor(props) {
@@ -26,7 +18,10 @@ export default class EditGreen extends Component {
     };
     this.focus = {};
     this.handleButtomPress = this.handleButtomPress.bind(this);
+    this.handleGreenName = this.handleGreenName.bind(this);
+    this.handleQuantity = this.handleQuantity.bind(this);
   }
+
   componentWillMount() {
     this.setState({
       myGreen: this.props.navigation.state.params.myGreen,
@@ -39,11 +34,21 @@ export default class EditGreen extends Component {
     });
   }
 
+  
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.props.navigation.state.params === nextProps.navigation.state.params) {
+      return false;
+    }
+    return true
+  }
+
   static navigationOptions = {
     title: "Modifica"
   };
 
   handleButtomPress() {
+    
+    console.log("PRIMA DEL FILTER" + new Date());
     if (this.state.myGreen.greenName === "") {
       this.focus["name"].focus();
       this.setState({ textError: "Devi inserire un nome." });
@@ -63,18 +68,33 @@ export default class EditGreen extends Component {
     myGreens = this.props.navigation.state.params.myGreens.filter(
       green => green.id !== this.state.myGreen.id
     );
-    console.log("DOPO IL FILTER" + myGreens);
+    console.log("DOPO IL FILTER" + new Date());
     myGardenGreens.saveMyGardenGreens([this.state.myGreen, ...myGreens]);
     this.props.navigation.navigate("MyGarden", this.state.myGreen);
   }
 
+  handleGreenName(text){
+    let myGreen = this.state.myGreen;
+    myGreen.greenName = text;
+    this.setState({ myGreen: myGreen });
+  }
+
+  handleQuantity(quantity){
+    let myGreen = this.state.myGreen;
+    myGreen.quantity = quantity;
+    this.setState({ myGreen: myGreen });
+  }
+
   render() {
+    title = this.state.title;
+    greenName = this.state.myGreen.greenName;
+    quantity = this.state.myGreen.quantity;
     return (
       <View style={styles.conteiner}>
         <ScrollView>
           <View style={styles.textConteiner}>
             <Text style={[styles.subTitle, { textAlign: "center" }]}>
-              {this.state.title}
+              {title}
             </Text>
             <View style={styles.rowConteiner}>
               <Text style={[styles.focus, { fontSize: 20 }]}>Nome:</Text>
@@ -83,13 +103,9 @@ export default class EditGreen extends Component {
                 style={[styles.text, styles.textInputGreen, styles.setBox]}
                 underlineColorAndroid="transparent"
                 placeholder="inserisci il nome"
-                onChangeText={text => {
-                  let myGreen = this.state.myGreen;
-                  myGreen.greenName = text;
-                  this.setState({ myGreen: myGreen });
-                }}
+                onChangeText={this.handleGreenName}
               >
-                {this.state.myGreen.greenName}
+                {greenName}
               </TextInput>
             </View>
 
@@ -102,13 +118,9 @@ export default class EditGreen extends Component {
                   underlineColorAndroid="transparent"
                   placeholder="inserisci la quantità"
                   keyboardType="numeric"
-                  onChangeText={text => {
-                    let myGreen = this.state.myGreen;
-                    myGreen.quantity = text;
-                    this.setState({ myGreen: myGreen });
-                  }}
+                  onChangeText={this.handleQuantity}
                 >
-                  {this.state.myGreen.quantity}
+                  {quantity}
                 </TextInput>
               </View>
             )}

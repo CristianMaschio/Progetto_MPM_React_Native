@@ -1,21 +1,13 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  AppRegistry,
-  Image,
-  StyleSheet
-} from "react-native";
-import { Avatar, CheckBox } from "react-native-elements";
-import { StackNavigator } from "react-navigation";
-
+import { AppRegistry, ScrollView, Text, View } from "react-native";
+import { CheckBox } from "react-native-elements";
+import AddGreen from "../../components/AddGreen/AddGreen";
 import ItemHeader from "../../components/ItemHeader/ItemHeader";
 import Period from "../../components/Period/Period";
-import AddGreen from "../../components/AddGreen/AddGreen";
-
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
+
+
 
 export default class Seeding extends Component {
   constructor(props) {
@@ -106,7 +98,7 @@ export default class Seeding extends Component {
             </Text>
           </View>
             
-          <AddGreen greenName={this.props.navigation.state.params.name} navigation={this.props.navigation} />
+          <AddGreen greenName={this.props.navigation.state.params.name} picture={this.props.navigation.state.params.picture} navigation={this.props.navigation} />
           
         </ScrollView>
       </View>

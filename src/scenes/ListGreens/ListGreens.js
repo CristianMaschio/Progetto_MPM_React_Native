@@ -1,17 +1,9 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  AppRegistry,
-  TouchableHighlight,
-  Image
-} from "react-native";
+import { AppRegistry, ScrollView, View } from "react-native";
 import { ListItem } from "react-native-elements";
-import { StackNavigator } from "react-navigation";
-
-import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
+import { greens } from "../../services/greens";
+
 
 export default class ListGreens extends Component {
   

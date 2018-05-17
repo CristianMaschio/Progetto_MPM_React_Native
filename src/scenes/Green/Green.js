@@ -1,20 +1,10 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  AppRegistry,
-  TouchableHighlight,
-  Image,
-  StyleSheet
-} from "react-native";
-import { List, ListItem, Avatar, Rating } from "react-native-elements";
-import { StackNavigator } from "react-navigation";
+import { AppRegistry, ScrollView, Text, View } from "react-native";
+import { Rating } from "react-native-elements";
 import ItemHeader from "../../components/ItemHeader/ItemHeader";
-
-import { greens } from "../../services/greens";
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
+
 
 
 export default class Green extends Component {
@@ -42,10 +32,8 @@ export default class Green extends Component {
 
           <View style={styles.rowConteiner}>
             <Text style={[styles.focus, styles.text]}>Range temperatura:</Text>
-            <Text style={[styles.text, { color: "blue" }]}>
+            <Text style={[styles.text]}>
               {params.tempMin}-
-            </Text>
-            <Text style={[styles.text, { color: "red" }]}>
               {params.tempMax}
             </Text>
           </View>
@@ -81,35 +69,35 @@ export default class Green extends Component {
           </View>
 
           <View style={styles.textConteiner}>
-            <Text style={styles.subTitle}>Descrizione:</Text>
+            <Text style={styles.subTitle}>Descrizione</Text>
             <Text style={styles.text}>
               {params.description}
             </Text>
           </View>
 
           <View style={styles.textConteiner}>
-            <Text style={styles.subTitle}>Clima:</Text>
+            <Text style={styles.subTitle}>Clima</Text>
             <Text style={styles.text}>
               {params.climate}
             </Text>
           </View>
 
           <View style={styles.textConteiner}>
-            <Text style={styles.subTitle}>Terreno:</Text>
+            <Text style={styles.subTitle}>Terreno</Text>
             <Text style={styles.text}>
               {params.ground}
             </Text>
           </View>
 
           <View style={styles.textConteiner}>
-            <Text style={styles.subTitle}>Fertilizzazione:</Text>
+            <Text style={styles.subTitle}>Fertilizzazione</Text>
             <Text style={styles.text}>
               {params.fertilization}
             </Text>
           </View>
 
           <View style={styles.textConteiner}>
-            <Text style={styles.subTitle}>Apporto d'acqua:</Text>
+            <Text style={styles.subTitle}>Apporto d'acqua</Text>
             <Text style={styles.text}>
               {params.waterSupply}
             </Text>

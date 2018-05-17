@@ -14,7 +14,7 @@ export const greens = [
     distanceFiles: "70-80 cm",
     ground:
       "Il pomodoro può essere coltivato in ogni tipo di suolo preferendo quelli ricchi di sostanza organica, irrigui, neutri, drenanti e a medio impasto nei quali si avranno i risultati migliori.",
-    literGround: "22 l.",
+    literGround: "22 l",
     fertilization:
       "Apportare almeno 20 giorni prima del trapianto e incorporare nel terreno del concime organico (letame fermentato maturo, compost) e/o concimi minerali a lenta cessione con azoto, fosforo e potassio in rapporto equilibrato.",
     waterSupply:
@@ -123,7 +123,7 @@ export const greens = [
     distanceFiles: "40-50 cm",
     ground:
       "La lattuga è poco esigente, potendo scegliere meglio una terra sciolta, fertile e drenante, ma non ci sono particolari richieste in termini di suolo.",
-    literGround: "8 l.",
+    literGround: "8 l",
     fertilization:
       "Concima gli ortaggi tre settimane dopo averli trapiantati all'aperto. Usa un impasto di erba medica o di fertilizzante a lento rilascio ricco di azoto, che permette alla verdura di crescere forte e rapidamente.",
     waterSupply:

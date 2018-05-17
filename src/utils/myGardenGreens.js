@@ -8,12 +8,13 @@ import { AsyncStorage } from "react-native";
     isForSeeding: boolean, //is for seeding
     isForPlanting: boolean, //is for planting
     date: Date,
-    quantity: number
+    quantity: number,
+    picture: string
   }
 ];*/
 
 function saveMyGardenGreens(myGarden) {
-  console.log(myGarden);
+  // console.log(myGarden);
   AsyncStorage.setItem("MyGarden", JSON.stringify(myGarden));
 }
 
@@ -39,7 +40,7 @@ function deleteMyGarden(myGarden) {
 
 async function getMyGardenGreens() {
   let myGarden = await AsyncStorage.getItem("MyGarden");
-  console.log('GET');
+  // console.log('GET');
   return JSON.parse(myGarden);
 }
 

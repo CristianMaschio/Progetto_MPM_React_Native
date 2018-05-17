@@ -1,18 +1,10 @@
 import React from "react";
-import {
-  View,
-  Image,
-  Text,
-  AppRegistry,
-  TouchableHighlight
-} from "react-native";
-
-import { List, ListItem } from "react-native-elements";
+import { Image, Text, TouchableHighlight, View } from "react-native";
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
-import { greens } from "../../services/greens";
-
 import NavigationService from "../../utils/NavigationService.js";
+
+
 
 export default class SideBar extends React.Component {
   navigation(screen) {

@@ -1,13 +1,9 @@
 import React, { Component } from "react";
-import { Text, View, ScrollView } from "react-native";
-
-import { styles } from "../../services/styles";
-import Seeding from "../Seeding/Seeding";
-import Planting from "../Planting/Planting";
-import MyGarden from "../MyGarden/MyGarden";
-
+import { ScrollView, Text, View } from "react-native";
 import { greens } from "../../services/greens";
-import { colors } from "../../services/colors";
+import { styles } from "../../services/styles";
+
+
 
 export default class Lab extends Component {
   static navigationOptions = {

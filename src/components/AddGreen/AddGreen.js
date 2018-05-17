@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Text, View, TextInput, Button } from "react-native";
+import { Button, Text, TextInput, View } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
-import { StackNavigator } from "react-navigation";
-
-import { styles } from "../../services/styles";
 import { colors } from "../../services/colors";
+import { styles } from "../../services/styles";
 import myGardenGreens from "../../utils/myGardenGreens";
 import HandleError from "../HandleError/HandleError";
+
 
 export default class AddGreen extends Component {
   constructor(props) {
@@ -54,12 +53,13 @@ export default class AddGreen extends Component {
     let myGreen = [
       {
         id: new Date(),
-        greenName: this.props.greenName,
-        name: this.state.greenName,
+        greenName: this.state.greenName,
+        name: this.props.greenName,
         isForSeeding: this.props.isForSeeding,
         isForPlanting: true,
         date: this.state.daySelected,
-        quantity: this.state.quantity
+        quantity: this.state.quantity,
+        picture: this.props.picture
       }
     ];
     await myGardenGreens.addMyGardenGreen(myGreen);

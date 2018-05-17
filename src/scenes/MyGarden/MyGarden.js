@@ -1,15 +1,14 @@
-import React, { Component } from "react";
-import { Text, View, ScrollView, AppRegistry } from "react-native";
-import { ListItem, Button } from "react-native-elements";
-import { StackNavigator } from "react-navigation";
-import * as Progress from "react-native-progress";
 import { format } from "date-fns";
+import React, { Component } from "react";
+import { AppRegistry, ScrollView, Text, View } from "react-native";
+import { Button, ListItem } from "react-native-elements";
 import Overlay from "react-native-modal-overlay";
-
-import { greens } from "../../services/greens";
+import * as Progress from "react-native-progress";
 import { colors } from "../../services/colors";
+import { greens } from "../../services/greens";
 import { styles } from "../../services/styles";
 import myGardenGreens from "../../utils/myGardenGreens";
+
 
 export default class MyGarden extends Component {
   constructor(props) {
@@ -29,17 +28,19 @@ export default class MyGarden extends Component {
 
   componentWillMount() {
     // myGardenGreens.deleteMyGarden();
+    console.log("MyGarden will mount");
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
     });
   }
 
   componentWillReceiveProps() {
-    console.log("MyGarden will mount");
+    console.log("MyGarden will receive props");
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
     });
   }
+  
 
   static navigationOptions = {
     title: "Il mio orto"
@@ -155,9 +156,7 @@ export default class MyGarden extends Component {
                 key={index}
                 roundAvatar
                 avatar={{
-                  uri: greens.find(green => {
-                    return green.name === myGreen.name;
-                  }).picture
+                  uri: myGreen.picture
                 }}
                 title={myGreen.greenName}
                 onPress={() =>

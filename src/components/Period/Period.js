@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
-import { styles } from "../../services/styles";
 import { colors } from "../../services/colors";
+import { styles } from "../../services/styles";
 
 export default class Period extends Component {
   static defaultProps = {

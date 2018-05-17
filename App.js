@@ -1,20 +1,18 @@
 import React from "react";
-import { View, Image, TouchableHighlight, StyleSheet } from "react-native";
-import { createStackNavigator, createTabNavigator } from "react-navigation";
+import { Image, TouchableHighlight } from "react-native";
 import Drawer from "react-native-drawer";
-import NavigationService from "./src/utils/NavigationService";
-
-import ListGreens from "./src/scenes/ListGreens/ListGreens";
-import Green from "./src/scenes/Green/Green";
-import Seeding from "./src/scenes/Seeding/Seeding";
-import Planting from "./src/scenes/Planting/Planting";
-import Lab from "./src/scenes/Lab/Lab";
-import MyGarden from "./src/scenes/MyGarden/MyGarden";
-import EditGreen from "./src/scenes/EditGreen/EditGreen";
-
+import { createStackNavigator, createTabNavigator } from "react-navigation";
 import SideBar from "./src/components/SideBar/SideBar";
-
+import EditGreen from "./src/scenes/EditGreen/EditGreen";
+import Green from "./src/scenes/Green/Green";
+import Home from "./src/scenes/Home/Home";
+import Lab from "./src/scenes/Lab/Lab";
+import ListGreens from "./src/scenes/ListGreens/ListGreens";
+import MyGarden from "./src/scenes/MyGarden/MyGarden";
+import Planting from "./src/scenes/Planting/Planting";
+import Seeding from "./src/scenes/Seeding/Seeding";
 import { colors } from "./src/services/colors";
+import NavigationService from "./src/utils/NavigationService";
 
 const TabSelect = createTabNavigator(
   {
@@ -70,6 +68,9 @@ const Navigation = createStackNavigator(
     EditGreen: {
       screen: EditGreen
     },
+    Home: {
+      screen: Home
+    },
     Green: {
       screen: TabSelect,
       navigationOptions: {
@@ -86,10 +87,9 @@ const Navigation = createStackNavigator(
       },
       headerRight: (
         <TouchableHighlight
-          onPress={() => {
-            this.openDrawer();
-          }}
+          onPress={this.openDrawer}
           underlayColor="transparent"
+          style={{ paddingLeft: 20 }}
         >
           <Image
             style={{ width: 35, height: 35, marginRight: 10 }}
@@ -116,7 +116,7 @@ export default class App extends React.Component {
           this.drawer = ref;
         }}
         content={<SideBar closeDrawer={closeDrawer} />}
-        onClose={() => this.drawer.close()}
+        onClose={closeDrawer}
         side="right"
         openDrawerOffset={120}
         negotiatePan={true}
