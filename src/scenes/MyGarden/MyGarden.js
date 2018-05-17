@@ -94,13 +94,17 @@ export default class MyGarden extends Component {
     this.setState({ myGardenGreens: myGreens, isVisible: false });
   }
 
-  handleRemove() {}
+  handleRemove() {
+    myGreens = this.state.myGardenGreens.filter(green => green.id!==this.state.greenSelected.id);
+    myGardenGreens.saveMyGardenGreens(myGreens);
+    this.setState({ myGardenGreens: myGreens, isVisible: false });
+  }
 
   renderOverlay() {
     return (
       <View>
         <Text style={[styles.subTitle, { textAlign: "center" }]}>
-          {this.state.greenSelected.name}
+          {this.state.greenSelected.greenName}
         </Text>
         <Button
           large
@@ -134,6 +138,7 @@ export default class MyGarden extends Component {
           rounded={true}
           buttonStyle={styles.dangerButton}
           title="Rimuovi"
+          onPress={this.handleRemove}
         />
       </View>
     );
