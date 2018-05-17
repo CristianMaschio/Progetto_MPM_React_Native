@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { Text, View, TextInput,
-  AppRegistry, Button, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  TextInput,
+  AppRegistry,
+  Button,
+  ScrollView
+} from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
 import { StackNavigator } from "react-navigation";
 
@@ -21,22 +27,24 @@ export default class EditGreen extends Component {
     this.focus = {};
     this.handleButtomPress = this.handleButtomPress.bind(this);
   }
-  componentWillMount(){
-      this.setState({myGreen: this.props.navigation.state.params.myGreen, 
-        title: this.props.navigation.state.params.myGreen.isForSeeding
+  componentWillMount() {
+    this.setState({
+      myGreen: this.props.navigation.state.params.myGreen,
+      title: this.props.navigation.state.params.myGreen.isForSeeding
         ? "Modifica la semina nel tuo orto"
-        : "Modifica il trapianto nel tuo orto", 
-        daySelctTitle: this.props.navigation.state.params.myGreen.isForSeeding
+        : "Modifica il trapianto nel tuo orto",
+      daySelctTitle: this.props.navigation.state.params.myGreen.isForSeeding
         ? "Modifica il giorno della semina"
-        : "Modifica il giorno del trapianto"});
+        : "Modifica il giorno del trapianto"
+    });
   }
-  
+
   static navigationOptions = {
     title: "Modifica"
   };
-  
- handleButtomPress() {
-    if (this.state.myGreen.name === "") {
+
+  handleButtomPress() {
+    if (this.state.myGreen.greenName === "") {
       this.focus["name"].focus();
       this.setState({ textError: "Devi inserire un nome." });
       return;
@@ -52,97 +60,109 @@ export default class EditGreen extends Component {
       });
       return;
     }
+    myGreens = this.props.navigation.state.params.myGreens.filter(
+      green => green.id !== this.state.myGreen.id
+    );
+    console.log("DOPO IL FILTER" + myGreens);
+    myGardenGreens.saveMyGardenGreens([this.state.myGreen, ...myGreens]);
+    this.props.navigation.navigate("MyGarden", this.state.myGreen);
   }
 
   render() {
     return (
       <View style={styles.conteiner}>
-      <ScrollView>
-        <View style={styles.textConteiner}>
-          <Text
-            style={[
-              styles.subTitle, {textAlign: 'center'}
-            ]}
-          >
-            {this.state.title}
-          </Text>
-          <View style={styles.rowConteiner}>
-            <Text style={[styles.focus, { fontSize: 20 }]}>Nome:</Text>
-            <TextInput
-              ref={ref => (this.focus["name"] = ref)}
-              style={[styles.text, styles.textInputGreen, styles.setBox]}
-              underlineColorAndroid="transparent"
-              placeholder="inserisci il nome"
-              onChangeText={text => this.setState({ greenName: text })}
-            >
-              {this.state.myGreen.name}
-            </TextInput>
-          </View>
-
-          {!this.state.myGreen.isForSeeding && (
+        <ScrollView>
+          <View style={styles.textConteiner}>
+            <Text style={[styles.subTitle, { textAlign: "center" }]}>
+              {this.state.title}
+            </Text>
             <View style={styles.rowConteiner}>
-              <Text style={[styles.focus, { fontSize: 20 }]}>Quantità:</Text>
+              <Text style={[styles.focus, { fontSize: 20 }]}>Nome:</Text>
               <TextInput
-                ref={ref => (this.focus["quantity"] = ref)}
+                ref={ref => (this.focus["name"] = ref)}
                 style={[styles.text, styles.textInputGreen, styles.setBox]}
                 underlineColorAndroid="transparent"
-                placeholder="inserisci la quantità"
-                keyboardType="numeric"
-                onChangeText={text => this.setState({ quantity: text })}>
-                {this.state.myGreen.quantity}
+                placeholder="inserisci il nome"
+                onChangeText={text => {
+                  let myGreen = this.state.myGreen;
+                  myGreen.greenName = text;
+                  this.setState({ myGreen: myGreen });
+                }}
+              >
+                {this.state.myGreen.greenName}
               </TextInput>
             </View>
-          )}
-        </View>
 
-        {this.state.myGreen.isForPlanting && (
-          <View>
-            <View style={[styles.textConteiner]}>
-              <Text style={styles.subTitle}>{this.state.daySelctTitle}:</Text>
-            </View>
-            <View style={[styles.setBox, styles.textConteiner]}>
-              <CalendarPicker
-                onDateChange={day => {
-                  this.setState({ daySelected: day });
-                  console.log(day);
-                }}
-                weekdays={["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"]}
-                months={[
-                  "Gennaio",
-                  "Febbraio",
-                  "Marzo",
-                  "Aprile",
-                  "Maggio",
-                  "Giugno",
-                  "Luglio",
-                  "Agosto",
-                  "Settebre",
-                  "Ottobre",
-                  "Novembre",
-                  "Dicembre"
-                ]}
-                todayBackgroundColor={colors.lightPrimary}
-                previousTitle="<<<"
-                nextTitle=">>>"
-                width="350"
-                textStyle={{ fontSize: 15 }}
-                enableSwipe={false}
-                selectedStartDate={this.state.myGreen.date}
-              />
-            </View>
+            {!this.state.myGreen.isForSeeding && (
+              <View style={styles.rowConteiner}>
+                <Text style={[styles.focus, { fontSize: 20 }]}>Quantità:</Text>
+                <TextInput
+                  ref={ref => (this.focus["quantity"] = ref)}
+                  style={[styles.text, styles.textInputGreen, styles.setBox]}
+                  underlineColorAndroid="transparent"
+                  placeholder="inserisci la quantità"
+                  keyboardType="numeric"
+                  onChangeText={text => {
+                    let myGreen = this.state.myGreen;
+                    myGreen.quantity = text;
+                    this.setState({ myGreen: myGreen });
+                  }}
+                >
+                  {this.state.myGreen.quantity}
+                </TextInput>
+              </View>
+            )}
           </View>
-        )}
 
-        {this.state.textError !== "" && (
-          <HandleError textError={this.state.textError} />
-        )}
-        <View style={[styles.textConteiner]}>
-          <Button
-            onPress={() => this.handleButtomPress()}
-            title="Effettua la modifica"
-            color={colors.success}
-          />
-        </View>
+          {this.state.myGreen.isForPlanting && (
+            <View>
+              <View style={[styles.textConteiner]}>
+                <Text style={styles.subTitle}>{this.state.daySelctTitle}:</Text>
+              </View>
+              <View style={[styles.setBox, styles.textConteiner]}>
+                <CalendarPicker
+                  onDateChange={day => {
+                    let myGreen = this.state.myGreen;
+                    myGreen.date = day;
+                    this.setState({ myGreen: myGreen });
+                  }}
+                  weekdays={["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"]}
+                  months={[
+                    "Gennaio",
+                    "Febbraio",
+                    "Marzo",
+                    "Aprile",
+                    "Maggio",
+                    "Giugno",
+                    "Luglio",
+                    "Agosto",
+                    "Settebre",
+                    "Ottobre",
+                    "Novembre",
+                    "Dicembre"
+                  ]}
+                  todayBackgroundColor={colors.lightPrimary}
+                  previousTitle="<<<"
+                  nextTitle=">>>"
+                  width="350"
+                  textStyle={{ fontSize: 15 }}
+                  enableSwipe={false}
+                  selectedStartDate={this.state.myGreen.date}
+                />
+              </View>
+            </View>
+          )}
+
+          {this.state.textError !== "" && (
+            <HandleError textError={this.state.textError} />
+          )}
+          <View style={[styles.textConteiner]}>
+            <Button
+              onPress={() => this.handleButtomPress()}
+              title="Effettua la modifica"
+              color={colors.success}
+            />
+          </View>
         </ScrollView>
       </View>
     );

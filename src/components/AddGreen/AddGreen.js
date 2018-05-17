@@ -113,7 +113,6 @@ export default class AddGreen extends Component {
           <CalendarPicker
             onDateChange={day => {
               this.setState({ daySelected: day });
-              console.log(day);
             }}
             weekdays={["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"]}
             months={[
@@ -138,8 +137,8 @@ export default class AddGreen extends Component {
             enableSwipe={false}
           />
         </View>
-        {this.state.textError!=="" && (
-        <HandleError textError={this.state.textError}/>
+        {this.state.textError !== "" && (
+          <HandleError textError={this.state.textError} />
         )}
         <View style={[styles.textConteiner]}>
           <Button

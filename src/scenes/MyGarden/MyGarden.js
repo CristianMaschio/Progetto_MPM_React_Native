@@ -28,14 +28,13 @@ export default class MyGarden extends Component {
   }
 
   componentWillMount() {
-  // myGardenGreens.deleteMyGarden();
+    // myGardenGreens.deleteMyGarden();
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
     });
   }
 
-  componentWillReceiveProps(){
-    
+  componentWillReceiveProps() {
     console.log("MyGarden will mount");
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
@@ -67,7 +66,11 @@ export default class MyGarden extends Component {
   handleChange() {
     const myGreen = this.state.greenSelected;
     const myGreens = this.state.myGardenGreens;
-    this.props.navigation.navigate("EditGreen", {myGreen: myGreen, myGreens: myGreens} );
+    this.setState({ isVisible: false });
+    this.props.navigation.navigate("EditGreen", {
+      myGreen: myGreen,
+      myGreens: myGreens
+    });
   }
 
   handleSeeding() {
@@ -96,7 +99,9 @@ export default class MyGarden extends Component {
   renderOverlay() {
     return (
       <View>
-        <Text style={[styles.subTitle, {textAlign: 'center'}]} >{this.state.greenSelected.name}</Text>
+        <Text style={[styles.subTitle, { textAlign: "center" }]}>
+          {this.state.greenSelected.name}
+        </Text>
         <Button
           large
           rounded={true}
@@ -146,15 +151,15 @@ export default class MyGarden extends Component {
                 roundAvatar
                 avatar={{
                   uri: greens.find(green => {
-                    return green.name === myGreen.greenName;
+                    return green.name === myGreen.name;
                   }).picture
                 }}
-                title={myGreen.name}
+                title={myGreen.greenName}
                 onPress={() =>
                   navigate(
                     "Green",
                     greens.find(green => {
-                      return green.name === myGreen.greenName;
+                      return green.name === myGreen.name;
                     })
                   )
                 }
@@ -170,23 +175,24 @@ export default class MyGarden extends Component {
                   <View style={{ marginLeft: 10 }}>
                     <Text>
                       {" "}
-                      {myGreen.isForPlanting && (myGreen.isForSeeding
-                        ? "Semina programmata per il: " +
-                          format(myGreen.date, "DD/MM/YYYY")
-                        : "Trapianto programmato per il: " +
-                          format(myGreen.date, "DD/MM/YYYY"))}
+                      {myGreen.isForPlanting &&
+                        (myGreen.isForSeeding
+                          ? "Semina programmata per il: " +
+                            format(myGreen.date, "DD/MM/YYYY")
+                          : "Trapianto programmato per il: " +
+                            format(myGreen.date, "DD/MM/YYYY"))}
                       {!myGreen.isForPlanting &&
-                        "Hai piantato: " +
-                          myGreen.quantity +
-                          " " +
-                          myGreen.name}
+                        "Numero di piante: " +
+                          myGreen.quantity }
                     </Text>
 
-                    <Progress.Bar
-                      progress={this.getProgress(myGreen.id, myGreen.date)}
-                      width={270}
-                      color={colors.success}
-                    />
+                    {myGreen.isForPlanting && (
+                      <Progress.Bar
+                        progress={this.getProgress(myGreen.id, myGreen.date)}
+                        width={270}
+                        color={colors.success}
+                      />
+                    )}
                   </View>
                 }
               />

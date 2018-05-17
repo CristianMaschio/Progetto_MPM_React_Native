@@ -13,6 +13,7 @@ import { AsyncStorage } from "react-native";
 ];*/
 
 function saveMyGardenGreens(myGarden) {
+  console.log(myGarden);
   AsyncStorage.setItem("MyGarden", JSON.stringify(myGarden));
 }
 
