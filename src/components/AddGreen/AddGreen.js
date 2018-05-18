@@ -27,6 +27,15 @@ export default class AddGreen extends Component {
     };
     this.focus = {};
     this.handleButtomPress = this.handleButtomPress.bind(this);
+  } 
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.props.greenName === nextProps.greenName && 
+      this.props.isForSeeding === nextProps.isForSeeding && 
+      this.state === nextState) {
+      return false;
+    }
+    console.log("Aggiorno EditGreen");
+    return true
   }
   static defaultProps = {
     greenName: "",

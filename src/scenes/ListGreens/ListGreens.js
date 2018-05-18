@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { AppRegistry, ScrollView, View } from "react-native";
 import { ListItem } from "react-native-elements";
 import { colors } from "../../services/colors";
 import { greens } from "../../services/greens";
 
 
-export default class ListGreens extends Component {
+export default class ListGreens extends PureComponent {
   
   static navigationOptions = {
     title: 'Lista ortaggi',

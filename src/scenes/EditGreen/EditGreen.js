@@ -36,9 +36,10 @@ export default class EditGreen extends Component {
 
   
   shouldComponentUpdate(nextProps, nextState) {
-    if(this.props.navigation.state.params === nextProps.navigation.state.params) {
+    if(this.props.navigation.state.params === nextProps.navigation.state.params && this.state === nextState) {
       return false;
     }
+    console.log("Aggiorno EditGreen");
     return true
   }
 

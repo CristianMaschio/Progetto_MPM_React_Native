@@ -4,6 +4,13 @@ import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
 
 export default class Period extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.period === nextProps.period) {
+      return false;
+    }
+    return true;
+  }
+
   static defaultProps = {
     period: ""
   };
@@ -13,45 +20,35 @@ export default class Period extends Component {
     switch (ideal) {
       case 1:
         render = (
-          <Text style={[styles.focus, { color: "#B5B370" }]}>
-            {month}
-          </Text>
+          <Text style={[styles.focus, { color: "#B5B370" }]}>{month}</Text>
         );
         break;
       case 2:
         render = (
-          <Text style={[styles.focus, { color: "#79B26E" }]}>
-            {month}
-          </Text>
+          <Text style={[styles.focus, { color: "#79B26E" }]}>{month}</Text>
         );
         break;
       case 3:
         render = (
-          <Text style={[styles.focus, { color: colors.success }]}>
-            {month}
-          </Text>
+          <Text style={[styles.focus, { color: colors.success }]}>{month}</Text>
         );
         break;
       default:
-        render = <Text style={[styles.focus, { color: "#A2A1A1" }]}>{month}</Text>;
+        render = (
+          <Text style={[styles.focus, { color: "#A2A1A1" }]}>{month}</Text>
+        );
     }
     return render;
   }
 
   render() {
-      period=this.props.period;
+    period = this.props.period;
     return (
       <View>
         <View style={styles.rowConteiner}>
-          <Text style={[styles.focus, { color: colors.success }]}>
-            Ideale
-          </Text>
-          <Text style={[styles.focus, { color: "#79B26E" }]}>
-            Sicuro
-          </Text>
-          <Text style={[styles.focus, { color: "#B5B370" }]}>
-            Poco sicuro
-          </Text>
+          <Text style={[styles.focus, { color: colors.success }]}>Ideale</Text>
+          <Text style={[styles.focus, { color: "#79B26E" }]}>Sicuro</Text>
+          <Text style={[styles.focus, { color: "#B5B370" }]}>Poco sicuro</Text>
           <Text style={[styles.focus, { color: "#A2A1A1" }]}>Sconsigliato</Text>
         </View>
         <View style={styles.rowConteiner}>

@@ -4,9 +4,16 @@ import { Avatar } from "react-native-elements";
 import { styles } from "../../services/styles";
 
 export default class ItemHeader extends Component {
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.navigation.title === nextProps.title) {
+      return false;
+    }
+    return true;
+  }
+
   static defaultProps = {
-      title: 'Nessun titolo',
-      image: ''
+    title: "Nessun titolo",
+    image: ""
   };
 
   render() {

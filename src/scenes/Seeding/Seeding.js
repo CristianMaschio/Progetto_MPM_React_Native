@@ -7,8 +7,6 @@ import Period from "../../components/Period/Period";
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
 
-
-
 export default class Seeding extends Component {
   constructor(props) {
     super(props);
@@ -18,13 +16,25 @@ export default class Seeding extends Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (
+      this.props.navigation.state.params.name ===
+      nextProps.navigation.state.params.name && this.state.checked === nextState.checked
+    ) {
+      return false;
+    }
+    return true;
+  }
+
   render() {
+    
+    const { params } = this.props.navigation.state;
     return (
       <View style={styles.conteiner}>
         <ScrollView>
           <ItemHeader
-            title={this.props.navigation.state.params.name}
-            image={this.props.navigation.state.params.picture}
+            title={params.name}
+            image={params.picture}
           />
 
           <View style={styles.textConteiner}>
@@ -59,8 +69,8 @@ export default class Seeding extends Component {
             <Text style={styles.subTitle}>Come seminare:</Text>
             <Text style={styles.text}>
               {this.state.checked
-                ? this.props.navigation.state.params.seeding.howIndoors
-                : this.props.navigation.state.params.seeding.howOutdoors}
+                ? params.seeding.howIndoors
+                : params.seeding.howOutdoors}
             </Text>
           </View>
 
@@ -68,11 +78,11 @@ export default class Seeding extends Component {
             <Text style={styles.subTitle}>Periodo di semina:</Text>
             {this.state.checked ? (
               <Period
-                period={this.props.navigation.state.params.seeding.indoors}
+                period={params.seeding.indoors}
               />
             ) : (
               <Period
-                period={this.props.navigation.state.params.seeding.outdoors}
+                period={params.seeding.outdoors}
               />
             )}
           </View>
@@ -83,7 +93,7 @@ export default class Seeding extends Component {
             </Text>
             <Text style={[styles.text]}>
               {
-                this.props.navigation.state.params.seeding
+                params.seeding
                   .temperatureGermination
               }
             </Text>
@@ -94,12 +104,15 @@ export default class Seeding extends Component {
               Profondità di semina:
             </Text>
             <Text style={[styles.text]}>
-              {this.props.navigation.state.params.seeding.depth}
+              {params.seeding.depth}
             </Text>
           </View>
-            
-          <AddGreen greenName={this.props.navigation.state.params.name} picture={this.props.navigation.state.params.picture} navigation={this.props.navigation} />
-          
+
+          <AddGreen
+            greenName={params.name}
+            picture={params.picture}
+            navigation={this.props.navigation}
+          />
         </ScrollView>
       </View>
     );

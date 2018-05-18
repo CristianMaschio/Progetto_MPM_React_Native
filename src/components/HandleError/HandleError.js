@@ -9,8 +9,11 @@ import { colors } from "../../services/colors";
 */
 
 export default class HandleError extends Component {
-  constructor(props) {
-    super(props);
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.textError === nextProps.textError) {
+      return false;
+    }
+    return true;
   }
   render() {
     return (

@@ -40,6 +40,14 @@ export default class MyGarden extends Component {
       this.setState({ myGardenGreens: myGreens });
     });
   }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if(this.state.myGardenGreens.length === nextState.myGardenGreens.length && this.state === nextState) {
+      return false;
+    }
+    console.log("Aggiorno MyGarden");
+    return true
+  }
   
 
   static navigationOptions = {

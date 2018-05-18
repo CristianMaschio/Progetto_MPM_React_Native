@@ -6,7 +6,7 @@ import NavigationService from "../../utils/NavigationService.js";
 
 
 
-export default class SideBar extends React.Component {
+export default class SideBar extends React.PureComponent {
   navigation(screen) {
     NavigationService.navigate(screen);
     this.props.closeDrawer();
@@ -17,6 +17,7 @@ export default class SideBar extends React.Component {
       <TouchableHighlight
         onPress={() => this.navigation(link)}
         underlayColor={colors.lightPrimary}
+        key = {name}
       >
         <View
           style={[
@@ -39,7 +40,7 @@ export default class SideBar extends React.Component {
   render() {
     return (
       <View style={styles.sideBar}>
-        {this.element("ListGreens", "Home", require("../img/home.png"))}
+        {this.element("Home", "Home", require("../img/home.png"))}
         {this.element(
           "ListGreens",
           "Lista Ortaggi",

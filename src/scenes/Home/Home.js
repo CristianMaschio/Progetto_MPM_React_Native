@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { AppRegistry, Image, ScrollView, Text, View } from "react-native";
 import { colors } from "../../services/colors";
 import { styles } from "../../services/styles";
 
 
-export default class Home extends Component {
+export default class Home extends PureComponent {
   static navigationOptions = {
     title: "Home"
   };
