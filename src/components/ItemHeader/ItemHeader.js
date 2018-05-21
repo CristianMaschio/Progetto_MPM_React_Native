@@ -5,7 +5,7 @@ import { styles } from "../../services/styles";
 
 export default class ItemHeader extends Component {
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.navigation.title === nextProps.title) {
+    if (this.props.title === nextProps.title) {
       return false;
     }
     return true;

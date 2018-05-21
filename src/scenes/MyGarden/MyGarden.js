@@ -42,7 +42,7 @@ export default class MyGarden extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if(this.state.myGardenGreens.length === nextState.myGardenGreens.length && this.state === nextState) {
+    if(nextState.myGardenGreens && this.state.myGardenGreens && this.state.myGardenGreens.length === nextState.myGardenGreens.length && this.state === nextState) {
       return false;
     }
     console.log("Aggiorno MyGarden");

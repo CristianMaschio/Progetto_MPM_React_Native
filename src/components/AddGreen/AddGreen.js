@@ -151,7 +151,7 @@ export default class AddGreen extends Component {
         )}
         <View style={[styles.textConteiner]}>
           <Button
-            onPress={() => this.handleButtomPress()}
+            onPress={this.handleButtomPress}
             title={this.state.buttomTitle}
             color={colors.success}
           />

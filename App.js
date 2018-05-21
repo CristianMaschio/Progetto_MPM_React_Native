@@ -56,6 +56,9 @@ const TabSelect = createTabNavigator(
 
 const Navigation = createStackNavigator(
   {
+    Home: {
+      screen: Home
+    },
     MyGarden: {
       screen: MyGarden
     },
@@ -67,9 +70,6 @@ const Navigation = createStackNavigator(
     },
     EditGreen: {
       screen: EditGreen
-    },
-    Home: {
-      screen: Home
     },
     Green: {
       screen: TabSelect,
