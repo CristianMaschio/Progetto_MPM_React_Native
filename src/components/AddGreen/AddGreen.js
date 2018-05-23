@@ -34,7 +34,6 @@ export default class AddGreen extends Component {
       this.state === nextState) {
       return false;
     }
-    console.log("Aggiorno EditGreen");
     return true
   }
   static defaultProps = {

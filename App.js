@@ -19,7 +19,7 @@ const TabSelect = createTabNavigator(
     Green: {
       screen: Green,
       navigationOptions: {
-        title: "Ortaggio"
+        title: "Ortaggio"      
       }
     },
     Seeding: {
@@ -36,7 +36,7 @@ const TabSelect = createTabNavigator(
     }
   },
   {
-    tabBarPosition: "bottom",
+    // tabBarPosition: "bottom",
     tabBarOptions: {
       style: { backgroundColor: colors.secondary },
       labelStyle: {
@@ -74,7 +74,7 @@ const Navigation = createStackNavigator(
     Green: {
       screen: TabSelect,
       navigationOptions: {
-        title: "Ortaggio"
+        title: "Ortaggio"   
       }
     }
   },

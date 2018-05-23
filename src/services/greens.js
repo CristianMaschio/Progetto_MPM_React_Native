@@ -219,5 +219,1115 @@ export const greens = [
       }
     },
     harvest: 30
+  },
+
+  {
+    name: "Ravanelli",
+    picture:
+      "https://images.unsplash.com/photo-1490072978022-b167e41f8e6f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=84e86eb131ad4946b2dbfc893d5acbd5&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Carciofi",
+    picture:
+      "https://images.unsplash.com/photo-1518735869015-566a18eae4be?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b72594e5adbf608030d2ddfd86ed42bc&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Peperoni",
+    picture:
+      "https://images.unsplash.com/photo-1518736114810-3f3bedfec66a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=00d0cc93bf094f399eaeaaf8b8ac4db4&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Fagiolini",
+    picture:
+      "https://images.unsplash.com/uploads/141143339879512fe9b0d/f72e2c85?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8693ae1d312dc76c15a94f9ae16ddadd&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Cavolfiore",
+    picture:
+      "https://images.unsplash.com/photo-1510627498534-cf7e9002facc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=56c732599bb90344b9659ac71f3a7060&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Carote",
+    picture:
+      "https://images.unsplash.com/photo-1445282768818-728615cc910a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=511257539a29da05735d3b1244e980f4&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Cipolla",
+    picture:
+      "https://images.unsplash.com/photo-1508747703725-719777637510?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=5499a29ac288e408f3feddd2924c57ba&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Aglio",
+    picture:
+      "https://images.unsplash.com/reserve/E6Ai8EoSQp2unXHEd1GA_GarlicHarvest.jpg?ixlib=rb-0.3.5&s=c9985523b954176b68c00dc124eec28f&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Basilico",
+    picture:
+      "https://images.unsplash.com/photo-1508595165502-3e2652e5a405?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=101b05ab2e2cd6351c7b6eda588fcdb5&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
+  },
+
+  {
+    name: "Prezzemolo",
+    picture:
+      "https://images.unsplash.com/photo-1526229221446-d32809f71e92?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=18733e20b77e258fb76b67d89f1d692e&auto=format&fit=crop&w=500&q=60",
+    description:
+      "",
+    climate:
+      "",
+    sun: "Media",
+    tempMin: "5°",
+    tempMax: "20°",
+    distancePlants: "25-35 cm",
+    distanceFiles: "40-50 cm",
+    ground:
+      "",
+    literGround: "8 l",
+    fertilization:
+      "",
+    waterSupply:
+      "",
+    difficulty: 1.9,
+    intercropping: [
+      "Aneto",
+      "Asparagi",
+      "Cavoli",
+      "Rapa",
+      "Cetrioli",
+      "Cicoria",
+      "Cipolle",
+      "Fagioli rampicanti",
+      "Finocchi",
+      "Fragole",
+      "Mais",
+      "Menta",
+      "Piselli",
+      "Pomodori",
+      "Porri",
+      "Rabarbaro",
+      "Ravanelli",
+      "Rape",
+      "Scorzanera"
+    ],
+    badIntercropping: ["Prezzemolo", "Sedano"],
+    seeding: {
+      howIndoors: "",
+      howOutdoors:"",
+      depth: "0,1 cm",
+      temperatureGermination: "10°",
+      indoors: {
+        gen: 1,
+        feb: 3,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 1,
+        ott: 0,
+        nov: 0,
+        dic: 1
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 2,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 2,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    transplant: {
+      how: "",
+      indoors: {
+        gen: 1,
+        feb: 2,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 1,
+        set: 3,
+        ott: 2,
+        nov: 1,
+        dic: 0
+      },
+      outdoors: {
+        gen: 0,
+        feb: 1,
+        mar: 3,
+        apr: 3,
+        mag: 3,
+        giu: 1,
+        lug: 0,
+        ago: 2,
+        set: 3,
+        ott: 1,
+        nov: 0,
+        dic: 0
+      }
+    },
+    harvest: 30
   }
 ];

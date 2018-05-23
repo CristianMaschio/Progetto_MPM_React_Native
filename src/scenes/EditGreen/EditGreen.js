@@ -39,7 +39,6 @@ export default class EditGreen extends Component {
     if(this.props.navigation.state.params === nextProps.navigation.state.params && this.state === nextState) {
       return false;
     }
-    console.log("Aggiorno EditGreen");
     return true
   }
 
@@ -49,7 +48,6 @@ export default class EditGreen extends Component {
 
   handleButtomPress() {
     
-    console.log("PRIMA DEL FILTER" + new Date());
     if (this.state.myGreen.greenName === "") {
       this.focus["name"].focus();
       this.setState({ textError: "Devi inserire un nome." });
@@ -69,7 +67,6 @@ export default class EditGreen extends Component {
     myGreens = this.props.navigation.state.params.myGreens.filter(
       green => green.id !== this.state.myGreen.id
     );
-    console.log("DOPO IL FILTER" + new Date());
     myGardenGreens.saveMyGardenGreens([this.state.myGreen, ...myGreens]);
     this.props.navigation.navigate("MyGarden", this.state.myGreen);
   }

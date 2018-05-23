@@ -28,14 +28,12 @@ export default class MyGarden extends Component {
 
   componentWillMount() {
     // myGardenGreens.deleteMyGarden();
-    console.log("MyGarden will mount");
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
     });
   }
 
   componentWillReceiveProps() {
-    console.log("MyGarden will receive props");
     myGardenGreens.getMyGardenGreens().then(myGreens => {
       this.setState({ myGardenGreens: myGreens });
     });
@@ -45,7 +43,6 @@ export default class MyGarden extends Component {
     if(nextState.myGardenGreens && this.state.myGardenGreens && this.state.myGardenGreens.length === nextState.myGardenGreens.length && this.state === nextState) {
       return false;
     }
-    console.log("Aggiorno MyGarden");
     return true
   }
   
@@ -88,7 +85,6 @@ export default class MyGarden extends Component {
       if (myGreen.id === this.state.greenSelected.id)
         myGreen.isForSeeding = !myGreen.isForSeeding;
     });
-    console.log(myGreens);
     myGardenGreens.saveMyGardenGreens(myGreens);
     this.setState({ myGardenGreens: myGreens, isVisible: false });
   }
@@ -227,4 +223,4 @@ export default class MyGarden extends Component {
   }
 }
 
-AppRegistry.registerComponent("MyGarden", () => MyGarden);
+AppRegistry.registerComponent("MyGarden", MyGarden);

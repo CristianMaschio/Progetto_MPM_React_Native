@@ -21,8 +21,7 @@ export default class ListGreens extends PureComponent {
               avatar={{ uri: green.picture }}
               title={green.name}
               onPress={() => {
-                console.log(green);
-                navigate("Green", green);
+                navigate("Green", {...green});
               }}
               titleStyle={{
                 fontSize: 18,
@@ -38,4 +37,4 @@ export default class ListGreens extends PureComponent {
   }
 }
 
-AppRegistry.registerComponent("ListGreens", () => ListGreens);
+AppRegistry.registerComponent("ListGreens", ListGreens);
