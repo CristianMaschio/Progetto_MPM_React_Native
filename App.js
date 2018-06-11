@@ -19,7 +19,7 @@ const TabSelect = createTabNavigator(
     Green: {
       screen: Green,
       navigationOptions: {
-        title: "Ortaggio"      
+        title: "Ortaggio"
       }
     },
     Seeding: {
@@ -56,6 +56,9 @@ const TabSelect = createTabNavigator(
 
 const Navigation = createStackNavigator(
   {
+    ListGreens: {
+      screen: ListGreens
+    },
     Home: {
       screen: Home
     },
@@ -65,16 +68,13 @@ const Navigation = createStackNavigator(
     Lab: {
       screen: Lab
     },
-    ListGreens: {
-      screen: ListGreens
-    },
     EditGreen: {
       screen: EditGreen
     },
     Green: {
       screen: TabSelect,
       navigationOptions: {
-        title: "Ortaggio"   
+        title: "Ortaggio"
       }
     }
   },
