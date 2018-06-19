@@ -9,6 +9,12 @@
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#000000"
+    },
+    "android":{
+      "package": "com.CristianMaschio.SmartOrto",
+      "versionCode": 1,
+      "permissions": [],
+      "icon": "./assets/icon.png"
     }
   }
 }
